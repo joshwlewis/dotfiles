@@ -26,6 +26,10 @@
 	# Undo a `git push`
 	undopush = push -f origin HEAD^:master
 
+	# simple shortcuts
+	co = checkout
+	br = branch
+
 [apply]
 	# Detect whitespace errors when applying a patch
 	whitespace = fix
