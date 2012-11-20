@@ -1,6 +1,8 @@
 # PATH ADDITION (for homebrew)
 export PATH="/usr/local/bin:$PATH"
 
+# Make sure RVM is good to go
+source ~/.rvm/scripts/rvm
 
 # Git credentials
 # Not in the repository, to prevent people from accidentally committing under my name
