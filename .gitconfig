@@ -62,9 +62,10 @@
 	log = true
 
 # Use `origin` as the default remote on the `master` branch in all cases
+# default config works better for me
 [branch "master"]
-	remote = origin
-	merge = refs/heads/master
+#	remote = origin
+#	merge = refs/heads/master
 
 # URL shorthands
 [url "git@github.com:"]
