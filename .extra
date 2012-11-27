@@ -6,3 +6,11 @@ git config --global user.name "$GIT_AUTHOR_NAME"
 GIT_AUTHOR_EMAIL="josh.w.lewis@gmail.com"
 GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
 git config --global user.email "$GIT_AUTHOR_EMAIL"
+
+# rbenv config
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+# Bundler aliases
+alias b='bundle'
+alias be='bundle exec'
+alias bu='bundle update'
