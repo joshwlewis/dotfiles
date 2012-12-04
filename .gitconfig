@@ -1,12 +1,34 @@
 [alias]
-	# View the SHA, description, and history graph of the latest 20 commits
-	l = log --pretty=oneline -n 20 --graph
+  # Various log aliases
+	l = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --graph
+	ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --graph -n 20
+	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+	lnc = log --pretty=format:"%h\\ %s\\ [%cn]"
+	lds = log --pretty=format:"%C(yellow)%h\\ %Cgreen%ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+	ld = log --pretty=format:"%C(yellow)%h\\ %Cgreen%ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+  
+  # File log
+  fl = log -u
+
 	# View the current working tree status using the short format
 	s = status -s
+
 	# Show the diff between the latest commit and the current state
 	d = !"git diff-index --quiet HEAD -- || clear; git diff --patch-with-stat"
+	
+	# Modified files last commit
+	dl = "!git ll -1"
+
+  # Diff last commit
+	dlc = diff --cached HEAD^
+
+  # Diff/log for revision until now
+	dr  = "!f() { git diff "$1"^.."$1"; }; f"
+	lc  = "!f() { git ll "$1"^.."$1"; }; f"
+
 	# `git di $number` shows the diff between the state `$number` revisions ago and the current state
 	di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
+	
 	# Pull in remote changes for the current repository and all its submodules
 	p = !"git pull; git submodule foreach git pull origin master"
 	# Clone a repository including all submodules
@@ -17,6 +39,8 @@
 	go = checkout -B
 	# Show verbose output about tags, branches or remotes
 	tags = tag -l
+	# Last tag
+	lasttag = describe --tags --abbrev=0
 	branches = branch -a
 	remotes = remote -v
 	# Credit an author on the latest commit
@@ -26,9 +50,25 @@
 	# Undo a `git push`
 	undopush = push -f origin HEAD^:master
 
+	# List aliases
+	aliases = "!git config -l | grep alias | cut -c 7-"
+
+	# Stash aliases
+	sl = stash list
+  sa = stash apply
+  ss = stash save
+
 	# simple shortcuts
+	cp = cherry-pick
+	st = status
+	cl = clone
+	ci = commit
 	co = checkout
-	br = branch
+	br = branch 
+	diff = diff --word-diff
+	dc = diff --cached
+	m = merge
+	ma = merge -X rename-threshold=25 -X ignore-space-change
 
 [apply]
 	# Detect whitespace errors when applying a patch
