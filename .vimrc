@@ -23,7 +23,7 @@ set noeol
 set backupdir=~/.vim/backups
 set directory=~/.vim/swaps
 if exists("&undodir")
-	set undodir=~/.vim/undo
+  set undodir=~/.vim/undo
 endif
 
 " Respect modeline in files
@@ -40,8 +40,11 @@ syntax on
 set cursorline
 " Make tabs as wide as two spaces
 set tabstop=2
+" Make tabs two spaces
+set expandtab
+set shiftwidth=2
 " Show “invisible” characters
-set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
+set lcs=tab:▸\ ,trail:·
 set list
 " Highlight searches
 set hlsearch
@@ -68,12 +71,17 @@ set title
 " Show the (partial) command as it’s being typed
 set showcmd
 " Use relative line numbers
+set t_Co=256
 if exists("&relativenumber")
 	set relativenumber
 	au BufReadPost * set relativenumber
 endif
 " Start scrolling three lines before the horizontal window border
 set scrolloff=3
+
+execute pathogen#infect()
+
+filetype plugin indent on
 
 " Strip trailing whitespace (,ss)
 function! StripWhitespace()
@@ -86,11 +94,4 @@ endfunction
 noremap <leader>ss :call StripWhitespace()<CR>
 " Save a file as root (,W)
 noremap <leader>W :w !sudo tee % > /dev/null<CR>
-
-" Automatic commands
-if has("autocmd")
-	" Enable file type detection
-	filetype on
-	" Treat .json files as .js
-	autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
-endif
+let g:Powerline_symbols = 'fancy'
