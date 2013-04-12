@@ -1,21 +1,21 @@
 [alias]
   # Various log aliases
-	l = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --graph
-	ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --graph -n 20
-	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+	ls = log --pretty=format:"%C(magenta)%h%Cgreen\\ %cr%Cblue\\ %an%Creset\\ %s"
+	l = log --pretty=format:"%C(magenta)%h%Cgreen\\ %cr%Cblue\\ %an%Cred\\ %d\\ %Creset%s"
+	ll = log --pretty=format:"%C(magenta)%h%Cgreen\\ %cr%Cblue\\ %an%Cred\\ %d\\ %Creset%s" --decorate --graph
 	lnc = log --pretty=format:"%h\\ %s\\ [%cn]"
 	lds = log --pretty=format:"%C(yellow)%h\\ %Cgreen%ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
 	ld = log --pretty=format:"%C(yellow)%h\\ %Cgreen%ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
-  
+
   # File log
   fl = log -u
 
 	# View the current working tree status using the short format
-	s = status -s
+	s = status -sb
 
 	# Show the diff between the latest commit and the current state
 	d = !"git diff-index --quiet HEAD -- || clear; git diff --patch-with-stat"
-	
+
 	# Modified files last commit
 	dl = "!git ll -1"
 
@@ -28,7 +28,7 @@
 
 	# `git di $number` shows the diff between the state `$number` revisions ago and the current state
 	di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
-	
+
 	# Pull in remote changes for the current repository and all its submodules
 	p = !"git pull; git submodule foreach git pull origin master"
 	# Clone a repository including all submodules
@@ -62,7 +62,7 @@
 	cl = clone
 	ci = commit
 	co = checkout
-	br = branch 
+	br = branch
 	diff = diff --word-diff
 	dc = diff --cached
 	m = merge
