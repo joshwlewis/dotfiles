@@ -4,8 +4,6 @@
 	l = log --pretty=format:"%C(magenta)%h%Cgreen\\ %cr%Cblue\\ %an%Cred\\ %d\\ %Creset%s"
 	ll = log --pretty=format:"%C(magenta)%h%Cgreen\\ %cr%Cblue\\ %an%Cred\\ %d\\ %Creset%s" --decorate --graph
 	lnc = log --pretty=format:"%h\\ %s\\ [%cn]"
-	lds = log --pretty=format:"%C(yellow)%h\\ %Cgreen%ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
-	ld = log --pretty=format:"%C(yellow)%h\\ %Cgreen%ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
 
   # File log
   fl = log -u
@@ -29,8 +27,16 @@
 	# `git di $number` shows the diff between the state `$number` revisions ago and the current state
 	di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
 
-	# Pull in remote changes for the current repository and all its submodules
-	p = !"git pull; git submodule foreach git pull origin master"
+  # shortcuts for pull
+  pl = pull
+  pr = pull --rebase
+
+  # rebase
+  rb = rebase
+  # rebase unpushed
+  rbu = rebase -i @{u}
+
+
 	# Clone a repository including all submodules
 	c = clone --recursive
 	# Commit all changes
@@ -45,8 +51,6 @@
 	remotes = remote -v
 	# Credit an author on the latest commit
 	credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD; }; f"
-	# Interactive rebase with the given number of latest commits
-	reb = "!r() { git rebase -i HEAD~$1; }; r"
 
 	# List aliases
 	aliases = "!git config -l | grep alias | cut -c 7-"
