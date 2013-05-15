@@ -18,4 +18,3 @@ function parse_git_branch() {
 }
 
 export PS1="\[${BOLD}${BLUE}\]\u \[$YELLOW\]at \[$CYAN\]\h \[$YELLOW\]in \[$MAGENTA\]\w\[$YELLOW\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$RED\]\$(parse_git_branch)\[$YELLOW\]\n\$ \[$RESET\]"
-export PS2="\[$RED\]→ \[$RESET\]"
