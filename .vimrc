@@ -81,6 +81,11 @@ set scrolloff=3
 
 execute pathogen#infect()
 
+" Use solarized colorscheme
+colorscheme solarized
+" Use powerline patched fonts
+let g:airline_powerline_fonts = 1
+
 filetype plugin indent on
 
 " Strip trailing whitespace (,ss)
