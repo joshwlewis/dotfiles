@@ -10,8 +10,6 @@ set esckeys
 set backspace=indent,eol,start
 " Optimize for fast terminal connections
 set ttyfast
-" Add the g flag to search/replace by default
-set gdefault
 " Use UTF-8 without BOM
 set encoding=utf-8 nobomb
 " Change mapleader
@@ -43,13 +41,25 @@ set tabstop=2
 " Make tabs two spaces
 set expandtab
 set shiftwidth=2
+set autoindent
+set shiftround
+set smarttab
+set complete-=i
+set showmatch
+set nrformats-=octal
+set ttimeout
+set ttimeoutlen=50
+set autoread
+set fileformats+=mac
+
 " Show “invisible” characters
-set lcs=tab:▸\ ,trail:·
+set lcs=tab:▸\ ,trail:·,extends:»,precedes:«
+" Show a visual max line length indicator
+set colorcolumn=80
+set textwidth=80
 set list
 " Highlight searches
 set hlsearch
-" Ignore case of searches
-set ignorecase
 " Highlight dynamically as pattern is typed
 set incsearch
 " Always show status line
@@ -76,17 +86,25 @@ if exists("&relativenumber")
 	set relativenumber
 	au BufReadPost * set relativenumber
 endif
-" Start scrolling three lines before the horizontal window border
-set scrolloff=3
+if !&scrolloff
+  set scrolloff=1
+endif
+if !&sidescrolloff
+  set sidescrolloff=5
+endif
+set display+=lastline
 
 execute pathogen#infect()
 
 " Use solarized colorscheme
 colorscheme solarized
+
 " Use powerline patched fonts
 let g:airline_powerline_fonts = 1
 
 filetype plugin indent on
+
+runtime! macros/matchit.vim
 
 " Strip trailing whitespace (,ss)
 function! StripWhitespace()
@@ -99,4 +117,3 @@ endfunction
 noremap <leader>ss :call StripWhitespace()<CR>
 " Save a file as root (,W)
 noremap <leader>W :w !sudo tee % > /dev/null<CR>
-let g:Powerline_symbols = 'fancy'
