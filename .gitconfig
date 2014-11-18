@@ -12,7 +12,7 @@
 	s = status -sb
 
 	# Show the diff between the latest commit and the current state
-	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
+	d = !"git diff-index --quiet HEAD -- || clear; git diff --patch-with-stat"
 
 	# Modified files last commit
 	dl = "!git ll -1"
@@ -80,21 +80,11 @@
 	# Use custom `.gitignore` and `.gitattributes`
 	excludesfile = ~/.gitignore
 	attributesfile = ~/.gitattributes
-<<<<<<< HEAD
 	# Treat spaces before tabs, lines that are indented with 8 or more spaces, and all kinds of trailing whitespace as an error
   whitespace = space-before-tab,tab-in-indent,trailing-space,tabwidth=2
-=======
-	# Treat spaces before tabs, lines that are indented with 8 or more spaces, and
-	# all kinds of trailing whitespace as an error.
-	# [default] trailing-space: looks for spaces at the end of a line
-	# [default] space-before-tab: looks for spaces before tabs at the beginning of
-	# a line
-	whitespace = space-before-tab,indent-with-non-tab,trailing-space
->>>>>>> cb8843bea74f1d223ea2967c7a891ca76c9e54e9
 
 [color]
-	# Use colors in Git commands that are capable of colored output when
-	# outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
+	# Use colors in Git commands that are capable of colored output when outputting to the terminal
 	ui = auto
 [color "branch"]
 	current = yellow reverse
@@ -113,15 +103,12 @@
 	# Include summaries of merged commits in newly created merge commit messages
 	log = true
 
-<<<<<<< HEAD
 # Use `origin` as the default remote on the `master` branch in all cases
 # default config works better for me
 [branch "master"]
 #	remote = origin
 #	merge = refs/heads/master
 
-=======
->>>>>>> cb8843bea74f1d223ea2967c7a891ca76c9e54e9
 # URL shorthands
 [url "git@github.com:"]
 	insteadOf = "gh:"
