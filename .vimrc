@@ -34,6 +34,8 @@ set secure
 set number
 " Enable syntax highlighting
 syntax on
+" Set to dark background for terminal vim
+set background=dark
 " Highlight current line
 set cursorline
 " Make tabs as wide as two spaces
@@ -96,7 +98,7 @@ set display+=lastline
 
 execute pathogen#infect()
 
-" Use solarized colorscheme
+" Use solarized scheme
 colorscheme solarized
 
 " Use powerline patched fonts
