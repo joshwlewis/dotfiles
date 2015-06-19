@@ -1,3 +1,7 @@
+# Alias vi and vim to terminal mvim.
+alias vi="mvim -v"
+alias vim="mvim -v"
+
 # Easier navigation: .., ..., ...., ....., ~ and -
 alias ..="cd .."
 alias ...="cd ../.."
