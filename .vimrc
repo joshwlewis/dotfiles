@@ -1,3 +1,5 @@
+" Ensure vim shells out to bash
+set shell=/bin/bash
 " Make Vim more useful
 set nocompatible
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
@@ -104,6 +106,11 @@ colorscheme solarized
 " Use powerline patched fonts
 let g:airline_powerline_fonts = 1
 
+" Disable vim-markdown folding
+let g:vim_markdown_folding_disabled=1
+
+" CtrlP should ignore non-project files
+let g:ctrlp_custom_ignore = 'node_modules\|bower_components\|coverage\|DS_Store\|git'
 filetype plugin indent on
 
 runtime! macros/matchit.vim
@@ -116,6 +123,13 @@ function! StripWhitespace()
 	call setpos('.', save_cursor)
 	call setreg('/', old_query)
 endfunction
+
+" NERDTree
+map <C-n> :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
+let NERDTreeIgnore = ['\v.DS_Store|.git|.svn|.sass-cache$']
+
+" Strip all whitespace
 noremap <leader>ss :call StripWhitespace()<CR>
 " Save a file as root (,W)
 noremap <leader>W :w !sudo tee % > /dev/null<CR>
