@@ -1,5 +1,10 @@
 " Ensure vim shells out to bash
 set shell=/bin/bash
+
+" Use the Solarized Dark theme
+colorscheme solarized
+let g:solarized_termtrans=1
+
 " Make Vim more useful
 set nocompatible
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
@@ -25,6 +30,9 @@ set directory=~/.vim/swaps
 if exists("&undodir")
   set undodir=~/.vim/undo
 endif
+
+" Don’t create backups when editing files in certain directories
+set backupskip=/tmp/*,/private/tmp/*
 
 " Respect modeline in files
 set modeline
@@ -100,9 +108,6 @@ set display+=lastline
 
 execute pathogen#infect()
 
-" Use solarized scheme
-colorscheme solarized
-
 " Use powerline patched fonts
 let g:airline_powerline_fonts = 1
 
@@ -133,3 +138,13 @@ let NERDTreeIgnore = ['\v.DS_Store|.git|.svn|.sass-cache$']
 noremap <leader>ss :call StripWhitespace()<CR>
 " Save a file as root (,W)
 noremap <leader>W :w !sudo tee % > /dev/null<CR>
+
+" Automatic commands
+if has("autocmd")
+	" Enable file type detection
+	filetype on
+	" Treat .json files as .js
+	autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
+	" Treat .md files as Markdown
+	autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
+endif
