@@ -2,6 +2,11 @@
 alias vi="mvim -v"
 alias vim="mvim -v"
 
+# Bundler aliases
+alias b='bundle'
+alias be='bundle exec'
+alias bu='bundle update'
+
 # Easier navigation: .., ..., ...., ....., ~ and -
 alias ..="cd .."
 alias ...="cd ../.."
