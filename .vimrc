@@ -1,9 +1,9 @@
 " Ensure vim shells out to bash
 set shell=/bin/bash
 
-" Use the Solarized Dark theme
+" Use the Solarized Light theme
+set background=light
 colorscheme solarized
-let g:solarized_termtrans=1
 
 " Make Vim more useful
 set nocompatible
@@ -44,8 +44,6 @@ set secure
 set number
 " Enable syntax highlighting
 syntax on
-" Set to dark background for terminal vim
-set background=dark
 " Highlight current line
 set cursorline
 " Make tabs as wide as two spaces
