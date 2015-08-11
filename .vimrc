@@ -104,19 +104,7 @@ if !&sidescrolloff
 endif
 set display+=lastline
 
-execute pathogen#infect()
-
-" Use powerline patched fonts
-let g:airline_powerline_fonts = 1
-
-" Disable vim-markdown folding
-let g:vim_markdown_folding_disabled=1
-
-" CtrlP should ignore non-project files
-let g:ctrlp_custom_ignore = 'node_modules\|bower_components\|coverage\|DS_Store\|git'
 filetype plugin indent on
-
-runtime! macros/matchit.vim
 
 " Strip trailing whitespace (,ss)
 function! StripWhitespace()
@@ -127,15 +115,49 @@ function! StripWhitespace()
 	call setreg('/', old_query)
 endfunction
 
-" NERDTree
-map <C-n> :NERDTreeToggle<CR>
-let NERDTreeShowHidden=1
-let NERDTreeIgnore = ['\v.DS_Store|.git|.svn|.sass-cache$']
-
 " Strip all whitespace
 noremap <leader>ss :call StripWhitespace()<CR>
 " Save a file as root (,W)
 noremap <leader>W :w !sudo tee % > /dev/null<CR>
+
+" capital navigation
+nnoremap J <c-d>
+xnoremap J <c-d>
+nnoremap K <c-u>
+xnoremap K <c-u>
+
+" up/down work as expected with word wrapping on
+nnoremap k gk
+nnoremap j gj
+nnoremap gk k
+nnoremap gj j
+
+" use standard regular expressions instead of out of the box vim
+nnoremap / /\v
+xnoremap / /\v
+
+" H/L go to beginning/end of line
+map H ^
+map L $
+
+execute pathogen#infect()
+
+" Plugin: powerline
+let g:airline_powerline_fonts = 1
+
+" Plugin: vim-markdown
+let g:vim_markdown_folding_disabled=1
+
+" Plugin: CtrlP
+let g:ctrlp_custom_ignore = 'node_modules\|bower_components\|coverage\|\.DS_Store\|\.git'
+
+" Plugin: NERDTree
+map <C-n> :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
+let NERDTreeIgnore = ['\.DS_Store','\.git','\.svn','\.sass-cache$']
+
+" Plugin: matchit
+runtime! macros/matchit.vim
 
 " Automatic commands
 if has("autocmd")
