@@ -149,7 +149,7 @@ let g:airline_powerline_fonts = 1
 let g:vim_markdown_folding_disabled=1
 
 " Plugin: CtrlP
-let g:ctrlp_custom_ignore = '\v(node_modules|bower_components|coverage)|(\.(DS_Store|swp|ico|git|svn))'
+let g:ctrlp_custom_ignore = '\v(node_modules|bower_components|coverage|tmp)|(\.(DS_Store|swp|ico|git|svn))'
 
 " Plugin: NERDTree
 map <C-n> :NERDTreeToggle<CR>
