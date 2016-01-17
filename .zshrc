@@ -1,6 +1,6 @@
 export ZSH=/Users/jlewis/.oh-my-zsh
 
-ZSH_THEME="geoffgarside"
+ZSH_THEME="agnoster"
 
 for dotfile in ~/.(path|exports|aliases|functions|extra); do
   source $dotfile
