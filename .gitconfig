@@ -1,9 +1,8 @@
 [alias]
   # Various log aliases
-	ls = log --pretty=format:"%C(magenta)%h%Cgreen\\ %cr%Cblue\\ %an%Creset\\ %s"
-	l = log --pretty=oneline -n 20 --graph --abbrev-commit
-	ll = log --pretty=format:"%C(magenta)%h%Cgreen\\ %cr%Cblue\\ %an%Cred\\ %d\\ %Creset%s" --decorate --graph
-	lnc = log --pretty=format:"%h\\ %s\\ [%cn]"
+  l  = log --pretty=format:"%C(magenta)%h\\ %Creset%s" --graph
+  ls = log --pretty=format:"%C(magenta)%h\\ %Cblue%an\\ %Creset%s" --graph
+  ll = log --pretty=format:"%C(magenta)%h\\ %Cgreen%ar\\ %Cblue%an\\ %Cred%d\\ %Creset%s" --graph
 
   # File log
   fl = log -u
@@ -219,5 +218,5 @@
 	insteadOf = "gist:"
 
 [user]
-	name = Josh Lewis
+	name = Josh W Lewis
 	email = josh.w.lewis@gmail.com
