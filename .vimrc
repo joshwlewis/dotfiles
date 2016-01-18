@@ -142,14 +142,22 @@ map L $
 
 execute pathogen#infect()
 
-" Plugin: powerline
-let g:airline_powerline_fonts = 1
-
 " Plugin: vim-markdown
 let g:vim_markdown_folding_disabled=1
 
-" Plugin: CtrlP
-let g:ctrlp_custom_ignore = '\v(node_modules|bower_components|coverage|tmp)|(\.(DS_Store|swp|ico|git|svn))'
+" Plugin: ctrl-p
+if executable('ag')
+  " Use the silver searcher when available
+  set grepprg=ag\ --nogroup\ --nocolor
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  let g:ctrlp_use_caching = 0
+else
+  " Otherwise, we need our own custom ignores
+  let g:ctrlp_custom_ignore = {
+    \ 'dir': '\v[\/](node_modules|bower_components|coverage|tmp|\.git|\.hg|\.svn)$',
+    \ 'file': '\v(\.exe|\.zip|\.DS_Store|\.swp|\.ico)$',
+    \ }
+endif
 
 " Plugin: NERDTree
 map <C-n> :NERDTreeToggle<CR>
