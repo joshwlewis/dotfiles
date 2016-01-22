@@ -104,6 +104,10 @@ if !&sidescrolloff
 endif
 set display+=lastline
 
+" Split in expected directions
+set splitright
+set splitbelow
+
 filetype plugin indent on
 
 " Strip trailing whitespace (,ss)
