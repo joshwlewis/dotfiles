@@ -119,16 +119,16 @@ function! StripWhitespace()
 	call setreg('/', old_query)
 endfunction
 
+" Be smarter about mouse support in tmux
+set mouse+=a
+if &term =~ '^screen'
+  set ttymouse=xterm2
+endif
+
 " Strip all whitespace
 noremap <leader>ss :call StripWhitespace()<CR>
 " Save a file as root (,W)
 noremap <leader>W :w !sudo tee % > /dev/null<CR>
-
-" capital navigation
-nnoremap J <c-d>
-xnoremap J <c-d>
-nnoremap K <c-u>
-xnoremap K <c-u>
 
 " up/down work as expected with word wrapping on
 nnoremap k gk
@@ -139,10 +139,6 @@ nnoremap gj j
 " use standard regular expressions instead of out of the box vim
 nnoremap / /\v
 xnoremap / /\v
-
-" H/L go to beginning/end of line
-map H ^
-map L $
 
 execute pathogen#infect()
 
