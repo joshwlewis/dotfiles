@@ -2,7 +2,7 @@
 set shell=/bin/bash
 
 " Use the Solarized Light theme
-set background=light
+set background=dark
 colorscheme solarized
 
 " Make Vim more useful
