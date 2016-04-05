@@ -1,6 +1,6 @@
-# Alias vi and vim to terminal mvim.
-alias vi="mvim -v"
-alias vim="mvim -v"
+# Alias vi and vim to neovim
+alias vi="nvim"
+alias vim="nvim"
 
 # Bundler aliases
 alias b='bundle'
