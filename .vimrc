@@ -1,7 +1,7 @@
 " Ensure vim shells out to bash
 set shell=/bin/bash
 
-" Use the Solarized Light theme
+" Use the Solarized dark theme
 set background=dark
 colorscheme solarized
 
