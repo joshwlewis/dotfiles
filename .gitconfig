@@ -220,3 +220,5 @@
 [user]
 	name = Josh W Lewis
 	email = josh.w.lewis@gmail.com
+[commit]
+	gpgsign = true
