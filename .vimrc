@@ -1,9 +1,7 @@
 " Ensure vim shells out to bash
 set shell=/bin/bash
 
-" Use the Solarized dark theme
-set background=dark
-colorscheme solarized
+colorscheme base16-ateliercave
 
 " Make Vim more useful
 set nocompatible
