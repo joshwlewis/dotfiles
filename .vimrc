@@ -5,6 +5,7 @@ colorscheme base16-ateliercave
 
 " Make Vim more useful
 set nocompatible
+
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 set clipboard=unnamed
 " Enhance command-line completion
@@ -174,3 +175,13 @@ if has("autocmd")
 	" Treat .md files as Markdown
 	autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
 endif
+
+"Custom status line
+set statusline=
+set statusline +=\ %n\ %*            "buffer number
+set statusline +=\ %{&ff}%y\ %*      "file format/type
+set statusline +=\ %<%F\ %*          "full path
+set statusline +=\ %m\ %*            "modified flag
+set statusline +=%=%5l/%L\ %*        "current line/total lines
+set statusline +=\ %4v\ %*           "virtual column number
+set statusline +=\ 0x%04B\ %*        "character under cursor
