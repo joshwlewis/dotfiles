@@ -1,22 +1,47 @@
 #!/usr/bin/env bash
 
-cd "$(dirname "${BASH_SOURCE}")";
+script_dir="$(cd "$(dirname "$0")" ; pwd -P)"
 
-git pull origin master;
+dotfiles=(
+  .aliases
+  .bash_profile
+  .bash_prompt
+  .bashrc
+  .curlrc
+  .editorconfig
+  .exports
+  .functions
+  .gdbinit
+  .gemrc
+  .gitattributes
+  .gitconfig
+  .gvimrc
+  .hgignore
+  .hushlogin
+  .inputrc
+  .irbrc
+  .screenrc
+  .tmux.conf
+  .vimrc
+  .wgetrc
+  .zshrc
+)
 
-function doIt() {
-	rsync --exclude ".git/" --exclude ".DS_Store" --exclude "bootstrap.sh" \
-		--exclude "README.md" --exclude "LICENSE-MIT.txt" -avh --no-perms . ~;
-	source ~/.bash_profile;
+function symlinkAll() {
+  for f in "${dotfiles[@]}"
+  do
+    echo $script_dir/$f
+    rm ~/$f && ln -s $script_dir/$f ~/$f
+  done
 }
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
-	doIt;
+  symlinkAll;
 else
-	read -p "This may overwrite existing files in your home directory. Are you sure? (y/n) " -n 1;
-	echo "";
-	if [[ $REPLY =~ ^[Yy]$ ]]; then
-		doIt;
-	fi;
+  read -p "This may overwrite existing files in your home directory. Are you sure? (y/n) " -n 1;
+  echo "";
+  if [[ $REPLY =~ ^[Yy]$ ]]; then
+    symlinkAll;
+  fi;
 fi;
-unset doIt;
+unset symlinkAll;

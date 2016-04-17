@@ -1,4 +1,0 @@
-# Git credentials
-git config --global user.name "Josh W Lewis"
-git config --global user.email "josh.w.lewis@gmail.com"
-

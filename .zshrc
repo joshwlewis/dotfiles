@@ -2,7 +2,7 @@ export ZSH=/Users/jlewis/.oh-my-zsh
 
 ZSH_THEME="afowler"
 
-for dotfile in ~/.(path|exports|aliases|functions|extra); do
+for dotfile in ~/.(path|exports|aliases|functions); do
   source $dotfile
 done
 
