@@ -1,6 +1,6 @@
 export ZSH=/Users/jlewis/.oh-my-zsh
 
-ZSH_THEME="dpoggi"
+ZSH_THEME="afowler"
 
 for dotfile in ~/.(path|exports|aliases|functions|extra); do
   source $dotfile
