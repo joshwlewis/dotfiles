@@ -48,3 +48,6 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 
 # rbenv config
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+# Use fzf keys and completions if installed
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

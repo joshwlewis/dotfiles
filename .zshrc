@@ -9,3 +9,6 @@ done
 plugins=(git rbenv bundler)
 
 source $ZSH/oh-my-zsh.sh
+
+# Source fzf completions and hotkeys if it's installed
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
