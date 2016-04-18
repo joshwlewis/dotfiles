@@ -1,3 +1,7 @@
+# Turn on vim mode
+set editing-mode vi
+set blink-matching-paren on
+
 # Make Tab autocomplete regardless of filename case
 set completion-ignore-case on
 
