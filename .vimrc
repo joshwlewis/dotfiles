@@ -149,6 +149,7 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'Raimondi/delimitMate'
+Plug 'mustache/vim-mustache-handlebars'
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 map <C-n> :NERDTreeToggle<CR>
