@@ -1,11 +1,10 @@
-" Ensure vim shells out to bash
-set shell=/bin/bash
+" Ensure vim shells out to zsh
+set shell=/bin/zsh
 
 colorscheme base16-ateliercave
 
 " Make Vim more useful
 set nocompatible
-
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 set clipboard=unnamed
 " Enhance command-line completion
@@ -20,19 +19,14 @@ set ttyfast
 set encoding=utf-8 nobomb
 " Change mapleader
 let mapleader=","
-" Don’t add empty newlines at the end of files
-set binary
-set noeol
 " Centralize backups, swapfiles and undo history
 set backupdir=~/.vim/backups
 set directory=~/.vim/swaps
 if exists("&undodir")
   set undodir=~/.vim/undo
 endif
-
 " Don’t create backups when editing files in certain directories
 set backupskip=/tmp/*,/private/tmp/*
-
 " Respect modeline in files
 set modeline
 set modelines=4
@@ -90,7 +84,6 @@ set title
 " Show the (partial) command as it’s being typed
 set showcmd
 " Use relative line numbers
-set t_Co=256
 if exists("&relativenumber")
 	set relativenumber
 	au BufReadPost * set relativenumber
