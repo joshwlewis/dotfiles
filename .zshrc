@@ -1,14 +1,27 @@
-export ZSH=/Users/jlewis/.oh-my-zsh
-
-ZSH_THEME="afowler"
-
 for dotfile in ~/.(path|exports|aliases|functions); do
   source $dotfile
 done
 
-plugins=(git rbenv bundler)
+# Enable vim-mode
+bindkey -v
 
-source $ZSH/oh-my-zsh.sh
+source ~/.zplug.zsh
 
-# Source fzf completions and hotkeys if it's installed
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+zplug "themes/dpoggi",      from:oh-my-zsh
+zplug "plugins/bundler",    from:oh-my-zsh
+zplug "plugins/git",        from:oh-my-zsh
+zplug "plugins/ruby",       from:oh-my-zsh
+zplug "plugins/rbenv",      from:oh-my-zsh
+
+zplug "zsh-users/zsh-syntax-highlighting"
+zplug "zsh-users/zsh-history-substring-search"
+
+# Offer to install uninstalled plugins
+if ! zplug check --verbose; then
+  printf "Install zplugs? [y/N]: "
+  if read -q; then
+    echo; zplug install
+  fi
+fi
+# Then, source plugins and add commands to $PATH
+zplug load
