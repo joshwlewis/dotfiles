@@ -1,8 +1,7 @@
 " Ensure vim shells out to zsh
 set shell=/bin/zsh
-
+" Pretty colors
 colorscheme base16-ateliercave
-
 " Make Vim more useful
 set nocompatible
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
@@ -132,12 +131,31 @@ nnoremap gj j
 nnoremap / /\v
 xnoremap / /\v
 
-execute pathogen#infect()
+call plug#begin('~/.vim/plugged')
 
-" Plugin: vim-markdown
-let g:vim_markdown_folding_disabled=1
+Plug 'tomtom/tlib_vim'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'airblade/vim-rooter'
+Plug 'airblade/vim-gitgutter'
+Plug 'junegunn/vim-easy-align'
+Plug 'easymotion/vim-easymotion'
+Plug 'scrooloose/syntastic'
+Plug 'tpope/vim-commentary'
+Plug 'elixir-lang/vim-elixir'
+Plug 'vim-ruby/vim-ruby'
+Plug 'pangloss/vim-javascript'
+Plug 'tpope/vim-git'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-surround'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'Raimondi/delimitMate'
 
-" Plugin: ctrl-p
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+map <C-n> :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
+let NERDTreeIgnore = ['\.DS_Store','\.git','\.svn','\.sass-cache$']
+
+Plug 'ctrlpvim/ctrlp.vim'
 if executable('ag')
   " Use the silver searcher when available
   set grepprg=ag\ --nogroup\ --nocolor
@@ -151,13 +169,13 @@ else
     \ }
 endif
 
-" Plugin: NERDTree
-map <C-n> :NERDTreeToggle<CR>
-let NERDTreeShowHidden=1
-let NERDTreeIgnore = ['\.DS_Store','\.git','\.svn','\.sass-cache$']
+Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
+let g:vim_markdown_folding_diksabled=1
 
-" Plugin: matchit
+Plug 'tmhedberg/matchit'
 runtime! macros/matchit.vim
+
+call plug#end()
 
 " Automatic commands
 if has("autocmd")
