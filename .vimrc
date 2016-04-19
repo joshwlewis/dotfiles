@@ -138,6 +138,8 @@ Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'airblade/vim-rooter'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/vim-easy-align'
+  xmap ga <Plug>(EasyAlign)
+  nmap ga <Plug>(EasyAlign)
 Plug 'easymotion/vim-easymotion'
 Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-commentary'
@@ -150,32 +152,27 @@ Plug 'tpope/vim-surround'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'Raimondi/delimitMate'
 Plug 'mustache/vim-mustache-handlebars'
-
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-map <C-n> :NERDTreeToggle<CR>
-let NERDTreeShowHidden=1
-let NERDTreeIgnore = ['\.DS_Store','\.git','\.svn','\.sass-cache$']
-
+  map <C-n> :NERDTreeToggle<CR>
+  let NERDTreeShowHidden=1
+  let NERDTreeIgnore = ['\.DS_Store','\.git','\.svn','\.sass-cache$']
 Plug 'ctrlpvim/ctrlp.vim'
-if executable('ag')
-  " Use the silver searcher when available
-  set grepprg=ag\ --nogroup\ --nocolor
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-  let g:ctrlp_use_caching = 0
-else
-  " Otherwise, we need our own custom ignores
-  let g:ctrlp_custom_ignore = {
-    \ 'dir': '\v[\/](node_modules|bower_components|coverage|tmp|\.git|\.hg|\.svn)$',
-    \ 'file': '\v(\.exe|\.zip|\.DS_Store|\.swp|\.ico)$',
-    \ }
-endif
-
+  if executable('ag')
+    " Use the silver searcher when available
+    set grepprg=ag\ --nogroup\ --nocolor
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+    let g:ctrlp_use_caching = 0
+  else
+    " Otherwise, we need our own custom ignores
+    let g:ctrlp_custom_ignore = {
+      \ 'dir': '\v[\/](node_modules|bower_components|coverage|tmp|\.git|\.hg|\.svn)$',
+      \ 'file': '\v(\.exe|\.zip|\.DS_Store|\.swp|\.ico)$',
+      \ }
+  endif
 Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
-let g:vim_markdown_folding_diksabled=1
-
+  let g:vim_markdown_folding_diksabled=1
 Plug 'tmhedberg/matchit'
-runtime! macros/matchit.vim
-
+  runtime! macros/matchit.vim
 call plug#end()
 
 " Automatic commands
