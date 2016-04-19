@@ -8,11 +8,16 @@ bindkey -v
 source ~/.zplug.zsh
 
 zplug "themes/dpoggi",      from:oh-my-zsh
+zplug "plugins/bower",      from:oh-my-zsh
 zplug "plugins/bundler",    from:oh-my-zsh
 zplug "plugins/git",        from:oh-my-zsh
-zplug "plugins/ruby",       from:oh-my-zsh
+zplug "plugins/node",       from:oh-my-zsh
+zplug "plugins/npm",        from:oh-my-zsh
 zplug "plugins/rbenv",      from:oh-my-zsh
+zplug "plugins/ruby",       from:oh-my-zsh
+zplug "plugins/tmux",       from:oh-my-zsh
 
+zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-history-substring-search"
 
