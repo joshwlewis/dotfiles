@@ -135,7 +135,6 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'tomtom/tlib_vim'
 Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'airblade/vim-rooter'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/vim-easy-align'
   xmap ga <Plug>(EasyAlign)
@@ -143,16 +142,11 @@ Plug 'junegunn/vim-easy-align'
 Plug 'easymotion/vim-easymotion'
 Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-commentary'
-Plug 'elixir-lang/vim-elixir'
-Plug 'vim-ruby/vim-ruby'
-Plug 'pangloss/vim-javascript'
-Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
+Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'Raimondi/delimitMate'
-Plug 'mustache/vim-mustache-handlebars'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
   map <C-n> :NERDTreeToggle<CR>
   let NERDTreeShowHidden=1
@@ -170,8 +164,6 @@ Plug 'ctrlpvim/ctrlp.vim'
       \ 'file': '\v(\.exe|\.zip|\.DS_Store|\.swp|\.ico)$',
       \ }
   endif
-Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
-  let g:vim_markdown_folding_diksabled=1
 Plug 'tmhedberg/matchit'
   runtime! macros/matchit.vim
 call plug#end()
