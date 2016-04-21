@@ -132,7 +132,6 @@ nnoremap / /\v
 xnoremap / /\v
 
 call plug#begin('~/.vim/plugged')
-
 Plug 'tomtom/tlib_vim'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'airblade/vim-gitgutter'
@@ -148,6 +147,11 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'jiangmiao/auto-pairs'
+Plug 'honza/vim-snippets'
+Plug 'SirVer/ultisnips'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+  let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
+  let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
   map <C-n> :NERDTreeToggle<CR>
   let NERDTreeShowHidden=1
