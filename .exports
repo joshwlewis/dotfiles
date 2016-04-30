@@ -1,6 +1,9 @@
 # Make nvim the default editor.
 export EDITOR='nvim';
 
+# Reduce lag between zsh vim mode switches
+export KEYTIMEOUT=1;
+
 # Enable persistent REPL history for `node`.
 export NODE_REPL_HISTORY=~/.node_history;
 # Allow 32³ entries; the default is 1000.
