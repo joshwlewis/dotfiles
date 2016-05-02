@@ -1,7 +1,7 @@
 " Ensure vim shells out to zsh
 set shell=/bin/zsh
 " Pretty colors
-colorscheme base16-ateliercave
+colorscheme base16-unikitty
 " Make Vim more useful
 set nocompatible
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
