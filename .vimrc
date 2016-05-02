@@ -5,6 +5,7 @@ colorscheme base16-unikitty
 " Make Vim more useful
 set nocompatible
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
+" fuck
 set clipboard=unnamed
 " Enhance command-line completion
 set wildmenu
@@ -15,7 +16,7 @@ set backspace=indent,eol,start
 " Optimize for fast terminal connections
 set ttyfast
 " Use UTF-8 without BOM
-set encoding=utf-8 nobomb
+set encoding=utf-8
 " Change mapleader
 let mapleader=","
 " Centralize backups, swapfiles and undo history
@@ -41,6 +42,7 @@ set cursorline
 " Make tabs as wide as two spaces
 set tabstop=2
 " Make tabs two spaces
+"
 set expandtab
 set shiftwidth=2
 set autoindent
@@ -49,6 +51,7 @@ set smarttab
 set complete-=i
 set showmatch
 set nrformats-=octal
+
 set ttimeout
 set ttimeoutlen=50
 set autoread
@@ -182,6 +185,26 @@ if has("autocmd")
 	" Treat .md files as Markdown
 	autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
 endif
+
+" Set statusline color conditionally
+function! SetStatuslineColor(mode)
+  if a:mode == 'i'
+    hi statusline ctermfg=0 ctermbg=2 guifg=Black guibg=Green
+  elseif a:mode == 'r'
+    hi statusline ctermfg=0 ctermbg=5 guifg=Black guibg=Purple
+  elseif a:mode == 'v'
+    hi statusline ctermfg=0 ctermbg=9 guifg=Black guibg=DarkRed
+  else
+    hi statusline ctermfg=0 ctermbg=7 guifg=Black guibg=White
+  endif
+endfunction
+
+" Set statusline color when changing modes
+au InsertEnter * call SetStatuslineColor(v:insertmode)
+au InsertLeave * call SetStatuslineColor('n')
+
+" Set statusline to normal mode when entering vim
+call SetStatuslineColor('n')
 
 "Custom status line
 set statusline=
