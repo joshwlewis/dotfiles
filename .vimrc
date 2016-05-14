@@ -130,10 +130,6 @@ nnoremap j gj
 nnoremap gk k
 nnoremap gj j
 
-" use standard regular expressions instead of out of the box vim
-nnoremap / /\v
-xnoremap / /\v
-
 call plug#begin('~/.vim/plugged')
 Plug 'tomtom/tlib_vim'
 Plug 'MarcWeber/vim-addon-mw-utils'
@@ -150,6 +146,7 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'jiangmiao/auto-pairs'
+  let g:AutoPairsMultilineClose = 0
 Plug 'honza/vim-snippets'
 Plug 'SirVer/ultisnips'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
@@ -160,6 +157,7 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
   let NERDTreeShowHidden=1
   let NERDTreeIgnore = ['\.DS_Store','\.git','\.svn','\.sass-cache$']
 Plug 'ctrlpvim/ctrlp.vim'
+  let g:ctrlp_cmd = 'CtrlPMixed'
   if executable('ag')
     " Use the silver searcher when available
     set grepprg=ag\ --nogroup\ --nocolor
