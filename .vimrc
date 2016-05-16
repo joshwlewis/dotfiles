@@ -1,7 +1,5 @@
 " Ensure vim shells out to zsh
 set shell=/bin/zsh
-" Pretty colors
-colorscheme base16-unikitty
 " Make Vim more useful
 set nocompatible
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
@@ -35,14 +33,11 @@ set exrc
 set secure
 " Enable line numbers
 set number
-" Enable syntax highlighting
-syntax on
 " Highlight current line
 set cursorline
 " Make tabs as wide as two spaces
 set tabstop=2
 " Make tabs two spaces
-"
 set expandtab
 set shiftwidth=2
 set autoindent
@@ -102,8 +97,6 @@ set display+=lastline
 set splitright
 set splitbelow
 
-filetype plugin indent on
-
 " Strip trailing whitespace (,ss)
 function! StripWhitespace()
 	let save_cursor = getpos(".")
@@ -130,6 +123,37 @@ nnoremap j gj
 nnoremap gk k
 nnoremap gj j
 
+" Set statusline color conditionally
+function! SetStatuslineColor(mode)
+  if a:mode == 'i'
+    hi statusline ctermfg=0 ctermbg=2 guifg=Black guibg=Green
+  elseif a:mode == 'r'
+    hi statusline ctermfg=0 ctermbg=5 guifg=Black guibg=Purple
+  elseif a:mode == 'v'
+    hi statusline ctermfg=0 ctermbg=9 guifg=Black guibg=DarkRed
+  else
+    hi statusline ctermfg=0 ctermbg=7 guifg=Black guibg=White
+  endif
+endfunction
+
+" Set statusline color when changing modes
+au InsertEnter * call SetStatuslineColor(v:insertmode)
+au InsertLeave * call SetStatuslineColor('n')
+
+" Set statusline to normal mode when entering vim
+call SetStatuslineColor('n')
+
+"Custom status line
+set statusline=
+set statusline +=\ %n\ %*            "buffer number
+set statusline +=\ %{&ff}%y\ %*      "file format/type
+set statusline +=\ %<%F\ %*          "full path
+set statusline +=\ %m\ %*            "modified flag
+set statusline +=%=%5l/%L\ %*        "current line/total lines
+set statusline +=\ %4v\ %*           "virtual column number
+set statusline +=\ 0x%04B\ %*        "character under cursor
+
+" Install Plugins
 call plug#begin('~/.vim/plugged')
 Plug 'tomtom/tlib_vim'
 Plug 'MarcWeber/vim-addon-mw-utils'
@@ -176,40 +200,13 @@ call plug#end()
 
 " Automatic commands
 if has("autocmd")
-	" Enable file type detection
-	filetype on
-	" Treat .json files as .js
-	autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
-	" Treat .md files as Markdown
-	autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
+  filetype plugin indent on
+  autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
 endif
 
-" Set statusline color conditionally
-function! SetStatuslineColor(mode)
-  if a:mode == 'i'
-    hi statusline ctermfg=0 ctermbg=2 guifg=Black guibg=Green
-  elseif a:mode == 'r'
-    hi statusline ctermfg=0 ctermbg=5 guifg=Black guibg=Purple
-  elseif a:mode == 'v'
-    hi statusline ctermfg=0 ctermbg=9 guifg=Black guibg=DarkRed
-  else
-    hi statusline ctermfg=0 ctermbg=7 guifg=Black guibg=White
-  endif
-endfunction
+" Pretty colors
+colorscheme base16-unikitty
 
-" Set statusline color when changing modes
-au InsertEnter * call SetStatuslineColor(v:insertmode)
-au InsertLeave * call SetStatuslineColor('n')
+" Enable syntax highlighting
+syntax enable
 
-" Set statusline to normal mode when entering vim
-call SetStatuslineColor('n')
-
-"Custom status line
-set statusline=
-set statusline +=\ %n\ %*            "buffer number
-set statusline +=\ %{&ff}%y\ %*      "file format/type
-set statusline +=\ %<%F\ %*          "full path
-set statusline +=\ %m\ %*            "modified flag
-set statusline +=%=%5l/%L\ %*        "current line/total lines
-set statusline +=\ %4v\ %*           "virtual column number
-set statusline +=\ 0x%04B\ %*        "character under cursor
