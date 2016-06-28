@@ -169,19 +169,16 @@ Plug 'tpope/vim-git'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'jiangmiao/auto-pairs'
-  let g:AutoPairsMultilineClose = 0
 Plug 'honza/vim-snippets'
 Plug 'SirVer/ultisnips'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
   let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
   let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree'
   map <C-n> :NERDTreeToggle<CR>
   let NERDTreeShowHidden=1
   let NERDTreeIgnore = ['\.DS_Store','\.git','\.svn','\.sass-cache$']
 Plug 'ctrlpvim/ctrlp.vim'
-  let g:ctrlp_cmd = 'CtrlPMixed'
   if executable('ag')
     " Use the silver searcher when available
     set grepprg=ag\ --nogroup\ --nocolor
