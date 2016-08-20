@@ -172,6 +172,7 @@
 
 	# Detect copies as well as renames
 	renames = copies
+	tool = vimdiff
 
 [diff "bin"]
 	# Use `hexdump` to diff binary files
