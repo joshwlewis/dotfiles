@@ -162,7 +162,9 @@ Plug 'junegunn/vim-easy-align'
   xmap ga <Plug>(EasyAlign)
   nmap ga <Plug>(EasyAlign)
 Plug 'easymotion/vim-easymotion'
+Plug 'mtscout6/syntastic-local-eslint.vim'
 Plug 'scrooloose/syntastic'
+  let g:syntastic_javascript_checkers = ['eslint']
 Plug 'tpope/vim-commentary'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-git'
@@ -197,8 +199,13 @@ call plug#end()
 
 " Automatic commands
 if has("autocmd")
+  " Enable file type detection
   filetype plugin indent on
+  " Treat .json files as .js
+  autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
+  " Treat .md files as Markdown
   autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
+  autocmd Filetype go setlocal noexpandtab
 endif
 
 " Pretty colors
