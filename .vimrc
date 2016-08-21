@@ -172,10 +172,8 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'honza/vim-snippets'
-Plug 'SirVer/ultisnips'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
-  let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
-  let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  let g:deoplete#enable_at_startup = 1
 Plug 'scrooloose/nerdtree'
   map <C-n> :NERDTreeToggle<CR>
   let NERDTreeShowHidden=1
