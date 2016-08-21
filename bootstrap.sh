@@ -18,6 +18,7 @@ dotfiles=(
   .gvimrc
   .hgignore
   .hushlogin
+  .hyperterm.js
   .inputrc
   .irbrc
   .screenrc
