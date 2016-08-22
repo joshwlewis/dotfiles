@@ -29,3 +29,6 @@ export LESS_TERMCAP_md="${yellow}";
 
 # Don’t clear the screen after quitting a manual page.
 export MANPAGER='less -X';
+
+# Use the silver searcher by default for FZF
+export FZF_DEFAULT_COMMAND='ag -g ""'

@@ -174,23 +174,14 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'honza/vim-snippets'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   let g:deoplete#enable_at_startup = 1
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+  map <C-p> :Files<CR>
+  map <C-t> :Buffers<CR>
 Plug 'scrooloose/nerdtree'
   map <C-n> :NERDTreeToggle<CR>
   let NERDTreeShowHidden=1
   let NERDTreeIgnore = ['\.DS_Store','\.git','\.svn','\.sass-cache$']
-Plug 'ctrlpvim/ctrlp.vim'
-  if executable('ag')
-    " Use the silver searcher when available
-    set grepprg=ag\ --nogroup\ --nocolor
-    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-    let g:ctrlp_use_caching = 0
-  else
-    " Otherwise, we need our own custom ignores
-    let g:ctrlp_custom_ignore = {
-      \ 'dir': '\v[\/](node_modules|bower_components|coverage|tmp|\.git|\.hg|\.svn)$',
-      \ 'file': '\v(\.exe|\.zip|\.DS_Store|\.swp|\.ico)$',
-      \ }
-  endif
 Plug 'tmhedberg/matchit'
   runtime! macros/matchit.vim
 call plug#end()
