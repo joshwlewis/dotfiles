@@ -170,6 +170,11 @@ Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
+Plug 'terryma/vim-smooth-scroll'
+  noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 1)<CR>
+  noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 1)<CR>
+  noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 2)<CR>
+  noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 2)<CR>
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'honza/vim-snippets'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
