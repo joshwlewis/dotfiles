@@ -3,6 +3,7 @@
 script_dir="$(cd "$(dirname "$0")" ; pwd -P)"
 
 dotfiles=(
+  .agignore
   .aliases
   .bash_profile
   .bash_prompt
