@@ -35,7 +35,7 @@ set number
 " Highlight current line
 set cursorline
 " Make tabs as wide as two spaces
-set tabstop=2
+set tabstop=4
 " Make tabs two spaces
 set expandtab
 set shiftwidth=2
@@ -52,7 +52,7 @@ set autoread
 set fileformats+=mac
 
 " Show “invisible” characters
-set lcs=tab:▸\ ,trail:·,extends:»,precedes:«
+set lcs=tab:→⋅,trail:·,extends:»,precedes:«
 " Show a visual max line length indicator
 set colorcolumn=80
 set textwidth=80
@@ -81,8 +81,8 @@ set title
 set showcmd
 " Use relative line numbers
 if exists("&relativenumber")
-	set relativenumber
-	au BufReadPost * set relativenumber
+  set relativenumber
+  au BufReadPost * set relativenumber
 endif
 if !&scrolloff
   set scrolloff=1
@@ -98,11 +98,11 @@ set splitbelow
 
 " Strip trailing whitespace (,ss)
 function! StripWhitespace()
-	let save_cursor = getpos(".")
-	let old_query = getreg('/')
-	:%s/\s\+$//e
-	call setpos('.', save_cursor)
-	call setreg('/', old_query)
+  let save_cursor = getpos(".")
+  let old_query = getreg('/')
+  :%s/\s\+$//e
+  call setpos('.', save_cursor)
+  call setreg('/', old_query)
 endfunction
 
 " Be smarter about mouse support in tmux
@@ -169,11 +169,6 @@ Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
-Plug 'terryma/vim-smooth-scroll'
-  noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 1)<CR>
-  noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 1)<CR>
-  noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 2)<CR>
-  noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 2)<CR>
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'honza/vim-snippets'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
