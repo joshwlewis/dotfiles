@@ -35,7 +35,7 @@ set number
 " Highlight current line
 set cursorline
 " Make tabs as wide as two spaces
-set tabstop=4
+set tabstop=2
 " Make tabs two spaces
 set expandtab
 set shiftwidth=2
