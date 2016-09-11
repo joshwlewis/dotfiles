@@ -35,10 +35,11 @@ set number
 " Highlight current line
 set cursorline
 " Make tabs as wide as two spaces
-set tabstop=2
 " Make tabs two spaces
 set expandtab
 set shiftwidth=2
+set tabstop=2
+set softtabstop=2
 set autoindent
 set shiftround
 set smarttab
@@ -206,7 +207,7 @@ if has("autocmd")
   " Enable file type detection
   filetype plugin indent on
   " Use tabs in go
-  autocmd Filetype go setlocal noexpandtab
+  autocmd Filetype go setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
   autocmd BufWritePost,BufReadPost * Neomake
 endif
 
