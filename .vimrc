@@ -161,9 +161,6 @@ Plug 'junegunn/vim-easy-align'
   xmap ga <Plug>(EasyAlign)
   nmap ga <Plug>(EasyAlign)
 Plug 'easymotion/vim-easymotion'
-Plug 'mtscout6/syntastic-local-eslint.vim'
-Plug 'scrooloose/syntastic'
-  let g:syntastic_javascript_checkers = ['eslint']
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-endwise'
@@ -176,6 +173,8 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
   map <C-p> :Files<CR>
   map <C-t> :Buffers<CR>
+Plug 'neomake/neomake'
+  let g:neomake_javascript_enabled_makers = ['eslint']
 Plug 'scrooloose/nerdtree'
   map <C-n> :NERDTreeToggle<CR>
   let NERDTreeShowHidden=1
@@ -183,14 +182,18 @@ Plug 'scrooloose/nerdtree'
 Plug 'tmhedberg/matchit'
   runtime! macros/matchit.vim
 
+Plug 'JulesWang/css.vim',                { 'for': 'css' }
 Plug 'honza/dockerfile.vim',             { 'for': 'dockerfile' }
 Plug 'elixir-lang/vim-elixir',           { 'for': 'elixir' }
 Plug 'fatih/vim-go',                     { 'for': 'go' }
+  let g:go_fmt_command = "goimports"
 Plug 'tpope/vim-haml',                   { 'for': ['haml', 'sass', 'scss' ] }
 Plug 'othree/html5.vim',                 { 'for': 'html' }
 Plug 'mustache/vim-mustache-handlebars', { 'for': ['html.handlebars', 'html.mustache'] }
 Plug 'pangloss/vim-javascript',          { 'for': 'javascript' }
+Plug 'benjie/neomake-local-eslint.vim',  { 'for': ['javascript', 'css'] }
 Plug 'elzr/vim-json',                    { 'for': 'json' }
+Plug 'groenewege/vim-less',              { 'for': 'less' }
 Plug 'tpope/vim-markdown',               { 'for': 'markdown' }
 Plug 'keith/rspec.vim',                  { 'for': 'rspec' }
 Plug 'vim-ruby/vim-ruby',                { 'for': 'ruby' }
@@ -204,6 +207,7 @@ if has("autocmd")
   filetype plugin indent on
   " Use tabs in go
   autocmd Filetype go setlocal noexpandtab
+  autocmd BufWritePost,BufReadPost * Neomake
 endif
 
 " Pretty colors
