@@ -33,3 +33,5 @@ ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}☂%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg[cyan]%})%{$reset_color%}"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+[ -f ~/.asdf/asdf.sh ] && source ~/.asdf/asdf.sh

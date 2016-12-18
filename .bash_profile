@@ -46,8 +46,9 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 # Also try to grab any brew-installed tab compltions
 [ -f `brew --prefix`/etc/bash_completion ] && source `brew --prefix`/etc/bash_completion
 
-# rbenv config
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # Use fzf keys and completions if installed
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# Source asdf and completions
+[ -f ~/.asdf/asdf.sh ] && source ~/.asdf/asdf.sh
