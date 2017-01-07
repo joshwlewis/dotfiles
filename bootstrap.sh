@@ -33,7 +33,7 @@ function symlinkAll() {
   for f in "${dotfiles[@]}"
   do
     echo $script_dir/$f
-    rm ~/$f && ln -s $script_dir/$f ~/$f
+    rm ~/$f; ln -s $script_dir/$f ~/$f
   done
 }
 
