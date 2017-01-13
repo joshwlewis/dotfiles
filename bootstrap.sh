@@ -5,6 +5,7 @@ script_dir="$(cd "$(dirname "$0")" ; pwd -P)"
 dotfiles=(
   .agignore
   .aliases
+  .asdfrc
   .bash_profile
   .bash_prompt
   .bashrc
