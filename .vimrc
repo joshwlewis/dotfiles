@@ -197,6 +197,7 @@ Plug 'tpope/vim-markdown',               { 'for': 'markdown' }
 Plug 'keith/rspec.vim',                  { 'for': 'rspec' }
 Plug 'vim-ruby/vim-ruby',                { 'for': 'ruby' }
 Plug 'rust-lang/rust.vim',               { 'for': 'rust' }
+  let g:rustfmt_autosave = 1
 Plug 'keith/tmux.vim',                   { 'for': 'tmux' }
 
 call plug#end()
