@@ -50,6 +50,12 @@ set ttimeoutlen=50
 set autoread
 set fileformats+=mac
 
+" Allow unsaved buffers
+set hidden
+
+" Use the system clipboard
+set clipboard=unnamed
+
 " Show “invisible” characters
 set lcs=tab:→⋅,trail:·,extends:»,precedes:«
 " Show a visual max line length indicator
@@ -197,7 +203,6 @@ Plug 'tpope/vim-markdown',               { 'for': 'markdown' }
 Plug 'keith/rspec.vim',                  { 'for': 'rspec' }
 Plug 'vim-ruby/vim-ruby',                { 'for': 'ruby' }
 Plug 'rust-lang/rust.vim',               { 'for': 'rust' }
-  let g:rustfmt_autosave = 1
 Plug 'keith/tmux.vim',                   { 'for': 'tmux' }
 
 call plug#end()
