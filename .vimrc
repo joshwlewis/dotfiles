@@ -45,6 +45,10 @@ set complete-=i
 set showmatch
 set nrformats-=octal
 
+" Don't prompt to save when switching buffers, only when exiting vim
+set hidden
+set confirm
+
 set ttimeout
 set ttimeoutlen=50
 set autoread
@@ -179,7 +183,7 @@ Plug 'junegunn/fzf.vim'
   map <C-p> :Files<CR>
   map <C-t> :Buffers<CR>
 Plug 'neomake/neomake'
-  let g:neomake_javascript_enabled_makers = ['eslint']
+  " let g:neomake_javascript_enabled_makers = ['eslint']
 Plug 'scrooloose/nerdtree'
   map <C-n> :NERDTreeToggle<CR>
   let NERDTreeShowHidden=1
