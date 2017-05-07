@@ -54,9 +54,6 @@ set ttimeoutlen=50
 set autoread
 set fileformats+=mac
 
-" Allow unsaved buffers
-set hidden
-
 " Use the system clipboard
 set clipboard=unnamed
 
@@ -183,7 +180,7 @@ Plug 'junegunn/fzf.vim'
   map <C-p> :Files<CR>
   map <C-t> :Buffers<CR>
 Plug 'neomake/neomake'
-  " let g:neomake_javascript_enabled_makers = ['eslint']
+  let g:neomake_javascript_enabled_makers = ['eslint']
 Plug 'scrooloose/nerdtree'
   map <C-n> :NERDTreeToggle<CR>
   let NERDTreeShowHidden=1
