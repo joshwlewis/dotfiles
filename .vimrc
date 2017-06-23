@@ -4,8 +4,6 @@ set shell=/bin/zsh
 set nocompatible
 " Enhance command-line completion
 set wildmenu
-" Allow cursor keys in insert mode
-set esckeys
 " Allow backspace in insert mode
 set backspace=indent,eol,start
 " Optimize for fast terminal connections
@@ -127,6 +125,11 @@ nnoremap k gk
 nnoremap j gj
 nnoremap gk k
 nnoremap gj j
+
+if executable('ag')
+  set grepprg=ag\ --vimgrep\ $*
+  set grepformat=%f:%l:%c:%m
+endif
 
 " Set statusline color conditionally
 function! SetStatuslineColor(mode)
