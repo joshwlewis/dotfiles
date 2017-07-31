@@ -2,7 +2,7 @@ for dotfile in ~/.(path|exports|aliases|functions); do
   source $dotfile
 done
 
-source ~/.zgen.zsh
+source ~/.zgen/zgen.zsh
 if ! zgen saved; then
   zgen oh-my-zsh
 
