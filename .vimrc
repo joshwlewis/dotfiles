@@ -190,7 +190,12 @@ Plug 'scrooloose/nerdtree'
   let NERDTreeIgnore = ['\.DS_Store','\.git','\.svn','\.sass-cache$']
 Plug 'tmhedberg/matchit'
   runtime! macros/matchit.vim
-
+Plug 'janko-m/vim-test'
+  nmap <silent> <leader>t :TestNearest<CR>
+  nmap <silent> <leader>T :TestFile<CR>
+  nmap <silent> <leader>a :TestSuite<CR>
+  nmap <silent> <leader>l :TestLast<CR>
+  nmap <silent> <leader>g :TestVisit<CR>
 Plug 'JulesWang/css.vim',                { 'for': 'css' }
 Plug 'honza/dockerfile.vim',             { 'for': 'dockerfile' }
 Plug 'elixir-lang/vim-elixir',           { 'for': 'elixir' }
