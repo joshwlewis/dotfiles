@@ -182,8 +182,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
   map <C-p> :Files<CR>
   map <C-t> :Buffers<CR>
-Plug 'neomake/neomake'
-  let g:neomake_javascript_enabled_makers = ['eslint']
+Plug 'w0rp/ale'
 Plug 'scrooloose/nerdtree'
   map <C-n> :NERDTreeToggle<CR>
   let NERDTreeShowHidden=1
@@ -205,7 +204,6 @@ Plug 'tpope/vim-haml',                   { 'for': ['haml', 'sass', 'scss' ] }
 Plug 'othree/html5.vim',                 { 'for': 'html' }
 Plug 'mustache/vim-mustache-handlebars', { 'for': ['html.handlebars', 'html.mustache'] }
 Plug 'pangloss/vim-javascript',          { 'for': 'javascript' }
-Plug 'benjie/neomake-local-eslint.vim',  { 'for': ['javascript', 'css'] }
 Plug 'elzr/vim-json',                    { 'for': 'json' }
 Plug 'groenewege/vim-less',              { 'for': 'less' }
 Plug 'tpope/vim-markdown',               { 'for': 'markdown' }
@@ -222,7 +220,6 @@ if has("autocmd")
   filetype plugin indent on
   " Use tabs in go
   autocmd Filetype go setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
-  autocmd BufWritePost,BufReadPost * Neomake
 endif
 
 " Pretty colors
