@@ -92,9 +92,7 @@ hide_cursor_when_typing: false
 live_config_reload: true
 
 shell:
-  program: /usr/local/bin/zsh
-  args:
-    - --login
+  program: /usr/local/bin/tmux
 
 key_bindings:
   - { key: V,        mods: Command, action: Paste                        }
