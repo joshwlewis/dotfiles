@@ -9,55 +9,48 @@ padding:
   x: 24
   y: 24
 
-tabspaces: 4
+tabspaces: 2
 
 draw_bold_text_with_bright_colors: false
 
 font:
   normal:
-    family: Menlo
+    family: Fira Code
     style: Regular
 
-  # The bold font face
   bold:
-    family: Menlo
-    style: Bold
+    family: Fira Code
+    style: Medium
 
   italic:
-    family: Menlo
-    style: Italic
+    family: Fira Code
+    style: Light
 
   size: 14.0
 
   offset:
-    x: 1.0
-    y: 1.5
+    x: 0.0
+    y: 12.0
 
   glyph_offset:
     x: 0.0
-    y: 0.0
+    y: 6.0
 
   use_thin_strokes: true
 
 render_timer: false
 
-custom_cursor_colors: false
+custom_cursor_colors: true
 
-
-# Base16 Unikitty Light - alacritty color config
-# Josh W Lewis (@joshwlewis)
 colors:
-  # Default colors
   primary:
     background: '0xffffff'
     foreground: '0x6c696e'
 
-  # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
     text: '0xffffff'
     cursor: '0x6c696e'
 
-  # Normal colors
   normal:
     black:   '0xffffff'
     red:     '0xd8137f'
@@ -68,7 +61,6 @@ colors:
     cyan:    '0x149bda'
     white:   '0x6c696e'
 
-  # Bright colors
   bright:
     black:   '0xa7a5a8'
     red:     '0xd65407'
