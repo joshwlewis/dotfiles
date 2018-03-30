@@ -183,6 +183,8 @@ Plug 'junegunn/fzf.vim'
   map <C-p> :Files<CR>
   map <C-t> :Buffers<CR>
 Plug 'w0rp/ale'
+  let g:ale_fixers = { 'javascript': ['prettier'] }
+  nmap <silent> <leader>f :ALEFix<CR>
 Plug 'scrooloose/nerdtree'
   map <C-n> :NERDTreeToggle<CR>
   let NERDTreeShowHidden=1
@@ -203,8 +205,10 @@ Plug 'fatih/vim-go',                     { 'for': 'go' }
 Plug 'tpope/vim-haml',                   { 'for': ['haml', 'sass', 'scss' ] }
 Plug 'othree/html5.vim',                 { 'for': 'html' }
 Plug 'mustache/vim-mustache-handlebars', { 'for': ['html.handlebars', 'html.mustache'] }
-Plug 'pangloss/vim-javascript',          { 'for': 'javascript' }
+Plug 'pangloss/vim-javascript',          { 'for': ['javascript', 'jsx'] }
+Plug 'mxw/vim-jsx',          { 'for': ['javascript', 'jsx'] }
 Plug 'elzr/vim-json',                    { 'for': 'json' }
+  let g:vim_json_syntax_conceal = 0
 Plug 'groenewege/vim-less',              { 'for': 'less' }
 Plug 'tpope/vim-markdown',               { 'for': 'markdown' }
 Plug 'keith/rspec.vim',                  { 'for': 'rspec' }
