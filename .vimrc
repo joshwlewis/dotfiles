@@ -10,8 +10,6 @@ set backspace=indent,eol,start
 set ttyfast
 " Use UTF-8 without BOM
 set encoding=utf-8
-" Change mapleader
-let mapleader=","
 " Centralize backups, swapfiles and undo history
 set backupdir=~/.vim/backups
 set directory=~/.vim/swaps
@@ -65,6 +63,8 @@ set list
 set hlsearch
 " Highlight dynamically as pattern is typed
 set incsearch
+" Live substitution previews
+set inccommand=nosplit
 " Always show status line
 set laststatus=2
 " Enable mouse in all modes
