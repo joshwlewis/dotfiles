@@ -117,8 +117,6 @@ endif
 
 " Strip all whitespace
 noremap <leader>ss :call StripWhitespace()<CR>
-" Save a file as root (,W)
-noremap <leader>W :w !sudo tee % > /dev/null<CR>
 
 " up/down work as expected with word wrapping on
 nnoremap k gk
@@ -180,23 +178,25 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   let g:deoplete#enable_at_startup = 1
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-  map <C-p> :Files<CR>
-  map <C-t> :Buffers<CR>
+  nmap <silent> <leader>e :FZF<CR>
+  nmap <silent> <leader>o :Buffers<CR>
+  nmap <silent> <leader>u :Ag<CR>
 Plug 'w0rp/ale'
   let g:ale_fixers = { 'javascript': ['prettier'] }
-  nmap <silent> <leader>f :ALEFix<CR>
+  nmap <silent> <leader>r :ALEFix<CR>
 Plug 'scrooloose/nerdtree'
-  map <C-n> :NERDTreeToggle<CR>
+  nmap <silent> <leader>t :NERDTreeToggle<CR>
   let NERDTreeShowHidden=1
   let NERDTreeIgnore = ['\.DS_Store','\.git','\.svn','\.sass-cache$']
 Plug 'tmhedberg/matchit'
   runtime! macros/matchit.vim
 Plug 'janko-m/vim-test'
-  nmap <silent> <leader>t :TestNearest<CR>
-  nmap <silent> <leader>T :TestFile<CR>
-  nmap <silent> <leader>a :TestSuite<CR>
+  let test#strategy = "neovim"
+  nmap <silent> <leader>n :TestNearest<CR>
+  nmap <silent> <leader>f :TestFile<CR>
+  nmap <silent> <leader>s :TestSuite<CR>
   nmap <silent> <leader>l :TestLast<CR>
-  nmap <silent> <leader>g :TestVisit<CR>
+  nmap <silent> <leader>v :TestVisit<CR>
 Plug 'JulesWang/css.vim',                { 'for': 'css' }
 Plug 'honza/dockerfile.vim',             { 'for': 'dockerfile' }
 Plug 'elixir-lang/vim-elixir',           { 'for': 'elixir' }
