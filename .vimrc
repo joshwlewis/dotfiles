@@ -169,6 +169,7 @@ Plug 'junegunn/vim-easy-align'
   nmap ga <Plug>(EasyAlign)
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
@@ -191,7 +192,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'tmhedberg/matchit'
   runtime! macros/matchit.vim
 Plug 'janko-m/vim-test'
-  let test#strategy = "neovim"
+  let test#strategy = "dispatch"
   nmap <silent> <leader>n :TestNearest<CR>
   nmap <silent> <leader>f :TestFile<CR>
   nmap <silent> <leader>s :TestSuite<CR>
