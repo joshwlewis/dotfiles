@@ -24,4 +24,4 @@ export LESS_TERMCAP_md="${yellow}";
 export MANPAGER='less -X';
 
 # Use the silver searcher by default for FZF
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden --ignore-file=~/.hgignore'
+export FZF_DEFAULT_COMMAND='rg --files --hidden --ignore-file=~/.hgignore'
