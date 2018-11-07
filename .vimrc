@@ -124,8 +124,8 @@ nnoremap j gj
 nnoremap gk k
 nnoremap gj j
 
-if executable('ag')
-  set grepprg=ag\ --vimgrep\ $*
+if executable('rg')
+  set grepprg=rg\ --vimgrep
   set grepformat=%f:%l:%c:%m
 endif
 
@@ -181,7 +181,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
   nmap <silent> <leader>e :FZF<CR>
   nmap <silent> <leader>o :Buffers<CR>
-  nmap <silent> <leader>u :Ag<CR>
+  nmap <silent> <leader>u :Rg<CR>
 Plug 'w0rp/ale'
   let g:ale_fixers = { 'javascript': ['prettier'] }
   nmap <silent> <leader>r :ALEFix<CR>

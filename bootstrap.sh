@@ -3,7 +3,7 @@
 script_dir="$(cd "$(dirname "$0")" ; pwd -P)"
 
 dotfiles=(
-  .agignore
+  .rgignore
   .aliases
   .alacritty.yml
   .asdfrc
