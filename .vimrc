@@ -124,6 +124,12 @@ nnoremap j gj
 nnoremap gk k
 nnoremap gj j
 
+" Make nvim mode navigation more handy
+if has('nvim')
+  tnoremap <Esc> <C-\><C-n>
+  tnoremap <C-v><Esc> <Esc>
+end
+
 if executable('rg')
   set grepprg=rg\ --vimgrep
   set grepformat=%f:%l:%c:%m
@@ -169,7 +175,6 @@ Plug 'junegunn/vim-easy-align'
   nmap ga <Plug>(EasyAlign)
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
@@ -192,7 +197,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'tmhedberg/matchit'
   runtime! macros/matchit.vim
 Plug 'janko-m/vim-test'
-  let test#strategy = "dispatch"
+  let test#strategy = "neovim"
   nmap <silent> <leader>n :TestNearest<CR>
   nmap <silent> <leader>f :TestFile<CR>
   nmap <silent> <leader>s :TestSuite<CR>
