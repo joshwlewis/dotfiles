@@ -126,8 +126,7 @@ nnoremap gj j
 
 " Make nvim mode navigation more handy
 if has('nvim')
-  tnoremap <Esc> <C-\><C-n>
-  tnoremap <C-v><Esc> <Esc>
+  tnoremap <leader><Esc> <C-\><C-n>
 end
 
 if executable('rg')
