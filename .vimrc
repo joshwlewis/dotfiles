@@ -219,9 +219,18 @@ Plug 'tpope/vim-markdown',               { 'for': 'markdown' }
 Plug 'keith/rspec.vim',                  { 'for': 'rspec' }
 Plug 'vim-ruby/vim-ruby',                { 'for': 'ruby' }
 Plug 'rust-lang/rust.vim',               { 'for': 'rust' }
+  let g:rustfmt_autosave = 1
+Plug 'cespare/vim-toml',                 { 'for': 'toml' }
 Plug 'keith/tmux.vim',                   { 'for': 'tmux' }
+Plug 'leafgarland/typescript-vim'
+
 
 call plug#end()
+
+call deoplete#custom#option('omni_patterns', {
+\  'go': '[^. *\t]\.\w*',
+\ })
+
 
 " Automatic commands
 if has("autocmd")
