@@ -29,3 +29,5 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden --ignore-file=~/.hgignore'
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOBIN
+
+export PATH=$PATH:~/.local/bin
