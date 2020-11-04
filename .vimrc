@@ -187,7 +187,8 @@ Plug 'junegunn/fzf.vim'
   nmap <silent> <leader>o :Buffers<CR>
   nmap <silent> <leader>u :Rg<CR>
 Plug 'w0rp/ale'
-  let g:ale_fixers = { 'javascript': ['prettier'] }
+  let g:ale_fixers = { 'javascript': ['prettier'], 'go': ['goimports'] }
+  let g:ale_linters = { 'go': ['gometalinter'] }
   nmap <silent> <leader>r :ALEFix<CR>
 Plug 'scrooloose/nerdtree'
   nmap <silent> <leader>t :NERDTreeToggle<CR>
@@ -206,7 +207,7 @@ Plug 'JulesWang/css.vim',                { 'for': 'css' }
 Plug 'honza/dockerfile.vim',             { 'for': 'dockerfile' }
 Plug 'elixir-lang/vim-elixir',           { 'for': 'elixir' }
 Plug 'fatih/vim-go',                     { 'for': 'go' }
-  let g:go_fmt_command = "goimports"
+  let g:go_fmt_autosave = 0
 Plug 'tpope/vim-haml',                   { 'for': ['haml', 'sass', 'scss' ] }
 Plug 'othree/html5.vim',                 { 'for': 'html' }
 Plug 'mustache/vim-mustache-handlebars', { 'for': ['html.handlebars', 'html.mustache'] }
