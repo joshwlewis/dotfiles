@@ -124,6 +124,10 @@ nnoremap j gj
 nnoremap gk k
 nnoremap gj j
 
+" Exit insert mode with jk
+:inoremap jk <esc>
+:inoremap kj <esc>
+
 " Make nvim mode navigation more handy
 if has('nvim')
   tnoremap <leader><Esc> <C-\><C-n>
@@ -186,10 +190,13 @@ Plug 'junegunn/fzf.vim'
   nmap <silent> <leader>e :FZF<CR>
   nmap <silent> <leader>o :Buffers<CR>
   nmap <silent> <leader>u :Rg<CR>
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
   let g:ale_fixers = { 'javascript': ['prettier'], 'go': ['goimports'] }
-  let g:ale_linters = { 'go': ['gometalinter'] }
-  nmap <silent> <leader>r :ALEFix<CR>
+  let g:ale_linters = { 'go': ['gobuild', 'golint', 'golangci-lint'] }
+  let g:ale_go_golangci_lint_package=1
+  let g:ale_go_golangci_lint_options='--fast'
+  nmap <silent> <leader>lf :ALEFix<CR>
+  nmap <silent> <leader>ll :ALELint<CR>
 Plug 'scrooloose/nerdtree'
   nmap <silent> <leader>t :NERDTreeToggle<CR>
   let NERDTreeShowHidden=1
@@ -198,11 +205,11 @@ Plug 'tmhedberg/matchit'
   runtime! macros/matchit.vim
 Plug 'janko-m/vim-test'
   let test#strategy = "neovim"
-  nmap <silent> <leader>n :TestNearest<CR>
-  nmap <silent> <leader>f :TestFile<CR>
-  nmap <silent> <leader>s :TestSuite<CR>
-  nmap <silent> <leader>l :TestLast<CR>
-  nmap <silent> <leader>v :TestVisit<CR>
+  nmap <silent> <leader>tn :TestNearest<CR>
+  nmap <silent> <leader>tf :TestFile<CR>
+  nmap <silent> <leader>ts :TestSuite<CR>
+  nmap <silent> <leader>tl :TestLast<CR>
+  nmap <silent> <leader>tv :TestVisit<CR>
 Plug 'JulesWang/css.vim',                { 'for': 'css' }
 Plug 'honza/dockerfile.vim',             { 'for': 'dockerfile' }
 Plug 'elixir-lang/vim-elixir',           { 'for': 'elixir' }
@@ -239,6 +246,8 @@ if has("autocmd")
   filetype plugin indent on
   " Use tabs in go
   autocmd Filetype go setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
+  " Close completion window after insert or complete
+  autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 endif
 
 " Pretty colors
