@@ -205,8 +205,6 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'honza/vim-snippets'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  let g:deoplete#enable_at_startup = 1
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
   nmap <silent> <leader>e :FZF<CR>
@@ -231,7 +229,7 @@ Plug 'janko-m/vim-test'
   nmap <silent> <leader>tf :TestFile<CR>
   nmap <silent> <leader>ts :TestSuite<CR>
   nmap <silent> <leader>tl :TestLast<CR>
-  nmap <silent> <leader>tv :TestVisit<CR>
+  nmap <silent> <leader>tg :TestVisit<CR>
 Plug 'JulesWang/css.vim',                { 'for': 'css' }
 Plug 'honza/dockerfile.vim',             { 'for': 'dockerfile' }
 Plug 'elixir-lang/vim-elixir',           { 'for': 'elixir' }
@@ -254,13 +252,7 @@ Plug 'cespare/vim-toml',                 { 'for': 'toml' }
 Plug 'keith/tmux.vim',                   { 'for': 'tmux' }
 Plug 'leafgarland/typescript-vim'
 
-
 call plug#end()
-
-call deoplete#custom#option('omni_patterns', {
-\  'go': '[^. *\t]\.\w*',
-\ })
-
 
 " Automatic commands
 if has("autocmd")
