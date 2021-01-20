@@ -4,12 +4,19 @@ set shell=/bin/zsh
 set nocompatible
 " Enhance command-line completion
 set wildmenu
+set wildmode=longest:list,full
+
 " Allow backspace in insert mode
 set backspace=indent,eol,start
 " Optimize for fast terminal connections
 set ttyfast
 " Use UTF-8 without BOM
 set encoding=utf-8
+
+" Turn off backups
+set nobackup
+set nowritebackup
+
 " Centralize backups, swapfiles and undo history
 set backupdir=~/.vim/backups
 set directory=~/.vim/swaps
@@ -18,16 +25,13 @@ if exists("&undodir")
 endif
 " Don’t create backups when editing files in certain directories
 set backupskip=/tmp/*,/private/tmp/*
+
 " Respect modeline in files
 set modeline
 set modelines=4
 " Enable per-directory .vimrc files and disable unsafe commands in them
 set exrc
 set secure
-" Enable line numbers
-set number
-" Highlight current line
-set cursorline
 " Make tabs as wide as two spaces
 " Make tabs two spaces
 set expandtab
@@ -76,13 +80,23 @@ set nostartofline
 " Show the cursor position
 set ruler
 " Don’t show the intro message when starting Vim
-set shortmess=atI
+" Shorten most messages and don't pass them to ins menu
+set shortmess=atIc
 " Show the current mode
 set showmode
 " Show the filename in the window titlebar
 set title
 " Show the (partial) command as it’s being typed
 set showcmd
+set cmdheight=2
+
+" Improve delays and performance UX
+set updatetime=300
+
+" Enable line numbers
+set number
+" Highlight current line
+set cursorline
 " Use relative line numbers
 if exists("&relativenumber")
   set relativenumber
@@ -95,6 +109,14 @@ if !&sidescrolloff
   set sidescrolloff=5
 endif
 set display+=lastline
+
+" Always show the signcolumn to prevent shifting
+if has("patch-8.1.1564")
+  " Display numbers in the column if possible
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
 
 " Split in expected directions
 set splitright
@@ -109,14 +131,14 @@ function! StripWhitespace()
   call setreg('/', old_query)
 endfunction
 
+" Strip all whitespace
+noremap <leader>ss :call StripWhitespace()<CR>
+
 " Be smarter about mouse support in tmux
 set mouse+=a
 if &term =~ '^screen'
   set ttymouse=xterm2
 endif
-
-" Strip all whitespace
-noremap <leader>ss :call StripWhitespace()<CR>
 
 " up/down work as expected with word wrapping on
 nnoremap k gk
