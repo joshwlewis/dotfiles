@@ -97,11 +97,7 @@ set updatetime=300
 set number
 " Highlight current line
 set cursorline
-" Use relative line numbers
-if exists("&relativenumber")
-  set relativenumber
-  au BufReadPost * set relativenumber
-endif
+" Always keep some space before and after cursor
 if !&scrolloff
   set scrolloff=1
 endif
@@ -111,12 +107,7 @@ endif
 set display+=lastline
 
 " Always show the signcolumn to prevent shifting
-if has("patch-8.1.1564")
-  " Display numbers in the column if possible
-  set signcolumn=number
-else
-  set signcolumn=yes
-endif
+set signcolumn=yes
 
 " Split in expected directions
 set splitright
@@ -200,7 +191,6 @@ Plug 'junegunn/vim-easy-align'
   nmap ga <Plug>(EasyAlign)
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-git'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
 Plug 'christoomey/vim-tmux-navigator'
