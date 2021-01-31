@@ -200,9 +200,49 @@ Plug 'junegunn/fzf.vim'
   nmap <silent> <leader>e :FZF<CR>
   nmap <silent> <leader>o :Buffers<CR>
   nmap <silent> <leader>u :Rg<CR>
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  " Use tab for trigger completion with characters ahead and navigate.
+  inoremap <silent><expr> <TAB>
+        \ pumvisible() ? "\<C-n>" :
+        \ <SID>check_back_space() ? "\<TAB>" :
+        \ coc#refresh()
+  inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+  function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
+  endfunction
+
+  inoremap <silent> <CR> <C-r>=<SID>coc_confirm()<CR>
+  function! s:coc_confirm() abort
+    if pumvisible()
+      return coc#_select_confirm()
+    else
+      return "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+    endif
+  endfunction
+
 Plug 'dense-analysis/ale'
-  let g:ale_fixers = { 'javascript': ['prettier'], 'go': ['goimports'] }
-  let g:ale_linters = { 'go': ['gobuild', 'golint', 'golangci-lint'] }
+  let g:ale_fixers = {
+    \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+    \   'bash': ['shfmt'],
+    \   'css': ['prettier'],
+    \   'elixir': ['mix_format'],
+    \   'go': ['goimports'],
+    \   'haml': ['haml-lint'],
+    \   'html': ['prettier'],
+    \   'javascript': ['eslint'],
+    \   'json': ['prettier'],
+    \   'lua': ['luafmt'],
+    \   'markdown': ['prettier'],
+    \   'ruby': ['rubocop'],
+    \   'scss': ['prettier'],
+    \   'sh': ['shfmt'],
+    \   'terraform': ['terraform'],
+    \   'yaml': ['prettier']
+    \}
+  let g:ale_ruby_rubocop_executable = 'bundle'
+  let g:ale_ruby_rubocop_options = '-c .rubocop.yml'
   let g:ale_go_golangci_lint_package=1
   let g:ale_go_golangci_lint_options='--fast'
   nmap <silent> <leader>lf :ALEFix<CR>
@@ -223,8 +263,7 @@ Plug 'janko-m/vim-test'
 Plug 'JulesWang/css.vim',                { 'for': 'css' }
 Plug 'honza/dockerfile.vim',             { 'for': 'dockerfile' }
 Plug 'elixir-lang/vim-elixir',           { 'for': 'elixir' }
-Plug 'fatih/vim-go',                     { 'for': 'go' }
-  let g:go_fmt_autosave = 0
+Plug 'josa42/coc-go',                    { 'do': 'yarn install --frozen-lockfile' }
 Plug 'tpope/vim-haml',                   { 'for': ['haml', 'sass', 'scss' ] }
 Plug 'othree/html5.vim',                 { 'for': 'html' }
 Plug 'mustache/vim-mustache-handlebars', { 'for': ['html.handlebars', 'html.mustache'] }
@@ -237,7 +276,6 @@ Plug 'tpope/vim-markdown',               { 'for': 'markdown' }
 Plug 'keith/rspec.vim',                  { 'for': 'rspec' }
 Plug 'vim-ruby/vim-ruby',                { 'for': 'ruby' }
 Plug 'rust-lang/rust.vim',               { 'for': 'rust' }
-  let g:rustfmt_autosave = 1
 Plug 'cespare/vim-toml',                 { 'for': 'toml' }
 Plug 'keith/tmux.vim',                   { 'for': 'tmux' }
 Plug 'leafgarland/typescript-vim'
