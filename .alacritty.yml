@@ -12,18 +12,18 @@ draw_bold_text_with_bright_colors: false
 
 font:
   normal:
-    family: Consolas
+    family: Anonymous Pro
     style: Regular
 
   bold:
-    family: Consolas
-    style: Medium
+    family: Anonymous Pro
+    style: Bold
 
   italic:
-    family: Consolas
-    style: Light
+    family: Anonymous Pro
+    style: Italic
 
-  size: 14.0
+  size: 16.0
 
   offset:
     x: 0
