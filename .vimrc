@@ -201,6 +201,7 @@ Plug 'junegunn/fzf.vim'
   nmap <silent> <leader>o :Buffers<CR>
   nmap <silent> <leader>u :Rg<CR>
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  let g:coc_global_extensions = ['coc-go', 'coc-solargraph']
   " Use tab for trigger completion with characters ahead and navigate.
   inoremap <silent><expr> <TAB>
         \ pumvisible() ? "\<C-n>" :
@@ -221,6 +222,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
       return "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
     endif
   endfunction
+
+  nmap <silent> <leader>d <Plug>(coc-definition)
 
 Plug 'dense-analysis/ale'
   let g:ale_fixers = {
@@ -245,25 +248,25 @@ Plug 'dense-analysis/ale'
   let g:ale_ruby_rubocop_options = '-c .rubocop.yml'
   let g:ale_go_golangci_lint_package=1
   let g:ale_go_golangci_lint_options='--fast'
-  nmap <silent> <leader>lf :ALEFix<CR>
-  nmap <silent> <leader>ll :ALELint<CR>
+  nmap <silent> <leader>f :ALEFix<CR>
+  nmap <silent> <leader>l :ALELint<CR>
 Plug 'scrooloose/nerdtree'
-  nmap <silent> <leader>t :NERDTreeToggle<CR>
+  nmap <silent> <leader>a :NERDTreeToggle<CR>
   let NERDTreeShowHidden=1
   let NERDTreeIgnore = ['\.DS_Store','\.git','\.svn','\.sass-cache$']
 Plug 'tmhedberg/matchit'
   runtime! macros/matchit.vim
 Plug 'janko-m/vim-test'
   let test#strategy = "neovim"
-  nmap <silent> <leader>tn :TestNearest<CR>
-  nmap <silent> <leader>tf :TestFile<CR>
-  nmap <silent> <leader>ts :TestSuite<CR>
-  nmap <silent> <leader>tl :TestLast<CR>
-  nmap <silent> <leader>tg :TestVisit<CR>
+  nmap <silent> <leader>t :TestSuite<CR>
+  nmap <silent> <leader>n :TestNearest<CR>
+  nmap <silent> <leader>h :TestFile<CR>
+  nmap <silent> <leader>- :TestLast<CR>
+  nmap <silent> <leader>s :TestVisit<CR>
 Plug 'JulesWang/css.vim',                { 'for': 'css' }
 Plug 'honza/dockerfile.vim',             { 'for': 'dockerfile' }
 Plug 'elixir-lang/vim-elixir',           { 'for': 'elixir' }
-Plug 'josa42/coc-go',                    { 'do': 'yarn install --frozen-lockfile' }
+Plug 'josa42/coc-go',                    { 'do': 'yarn install --frozen-lockfile && yarn build' }
 Plug 'tpope/vim-haml',                   { 'for': ['haml', 'sass', 'scss' ] }
 Plug 'othree/html5.vim',                 { 'for': 'html' }
 Plug 'mustache/vim-mustache-handlebars', { 'for': ['html.handlebars', 'html.mustache'] }
@@ -297,4 +300,5 @@ colorscheme base16-unikitty
 
 " Enable syntax highlighting
 syntax enable
+
 
