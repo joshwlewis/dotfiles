@@ -93,8 +93,10 @@ set cmdheight=2
 " Improve delays and performance UX
 set updatetime=300
 
-" Enable line numbers
+" Enable line numbers; relative by default
 set number
+set relativenumber
+
 " Highlight current line
 set cursorline
 " Always keep some space before and after cursor
@@ -293,6 +295,10 @@ if has("autocmd")
   autocmd Filetype go setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
   " Close completion window after insert or complete
   autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+
+  " Use relative absolute numbers in insert mode, relative otherwise
+  autocmd InsertEnter * :set norelativenumber
+  autocmd InsertLeave * :set relativenumber
 endif
 
 " Pretty colors
