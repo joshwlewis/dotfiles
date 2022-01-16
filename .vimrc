@@ -1,5 +1,5 @@
 " Ensure vim shells out to zsh
-set shell=/bin/zsh
+set shell=zsh
 " Make Vim more useful
 set nocompatible
 " Enhance command-line completion
