@@ -108,8 +108,13 @@ if !&sidescrolloff
 endif
 set display+=lastline
 
-" Always show the signcolumn to prevent shifting
 set signcolumn=yes
+if has("nvim-0.5.0") || has("patch-8.1.1564")
+  " Recently vim can merge signcolumn and number column into one
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
 
 " Split in expected directions
 set splitright
@@ -203,7 +208,23 @@ Plug 'junegunn/fzf.vim'
   nmap <silent> <leader>o :Buffers<CR>
   nmap <silent> <leader>u :Rg<CR>
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  let g:coc_global_extensions = ['coc-go', 'coc-solargraph']
+  let g:coc_global_extensions = [
+  \   'coc-tsserver',
+  \   'coc-json',
+  \   'coc-go',
+  \   'coc-solargraph'
+  \ ]
+
+  " Use coc-prettier if the project uses prettier
+  if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
+    let g:coc_global_extensions += ['coc-prettier']
+  endif
+
+  " Use coc-eslint if the project uses eslint
+  if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
+    let g:coc_global_extensions += ['coc-eslint']
+  endif
+
   " Use tab for trigger completion with characters ahead and navigate.
   inoremap <silent><expr> <TAB>
         \ pumvisible() ? "\<C-n>" :
@@ -226,32 +247,16 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
   endfunction
 
   nmap <silent> <leader>d <Plug>(coc-definition)
+  nmap <silent> <leader>[ <Plug>(coc-diagnostic-prev)
+  nmap <silent> <leader>] <Plug>(coc-diagnostic-next)
+  nmap <silent> <leader>y <Plug>(coc-type-definition)
+  nmap <silent> <leader>p <Plug>(coc-implementation)
+  nmap <silent> <leader>r <Plug>(coc-references)
+  nmap <silent> <leader>c <SID>show_documentation()<CR>
+  xmap <leader>,  <Plug>(coc-format-selected)
+  nmap <silent> <leader>,  <Plug>(coc-format-selected)
+  nmap <silent> <leader>.  <Plug>(coc-codeaction-selected)
 
-Plug 'dense-analysis/ale'
-  let g:ale_fixers = {
-    \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-    \   'bash': ['shfmt'],
-    \   'css': ['prettier'],
-    \   'elixir': ['mix_format'],
-    \   'go': ['goimports'],
-    \   'haml': ['haml-lint'],
-    \   'html': ['prettier'],
-    \   'javascript': ['eslint'],
-    \   'json': ['prettier'],
-    \   'lua': ['luafmt'],
-    \   'markdown': ['prettier'],
-    \   'ruby': ['rubocop'],
-    \   'scss': ['prettier'],
-    \   'sh': ['shfmt'],
-    \   'terraform': ['terraform'],
-    \   'yaml': ['prettier']
-    \}
-  let g:ale_ruby_rubocop_executable = 'bundle'
-  let g:ale_ruby_rubocop_options = '-c .rubocop.yml'
-  let g:ale_go_golangci_lint_package=1
-  let g:ale_go_golangci_lint_options='--fast'
-  nmap <silent> <leader>f :ALEFix<CR>
-  nmap <silent> <leader>l :ALELint<CR>
 Plug 'scrooloose/nerdtree'
   nmap <silent> <leader>a :NERDTreeToggle<CR>
   let NERDTreeShowHidden=1
@@ -268,12 +273,13 @@ Plug 'janko-m/vim-test'
 Plug 'JulesWang/css.vim',                { 'for': 'css' }
 Plug 'honza/dockerfile.vim',             { 'for': 'dockerfile' }
 Plug 'elixir-lang/vim-elixir',           { 'for': 'elixir' }
-Plug 'josa42/coc-go',                    { 'do': 'yarn install --frozen-lockfile && yarn build' }
 Plug 'tpope/vim-haml',                   { 'for': ['haml', 'sass', 'scss' ] }
 Plug 'othree/html5.vim',                 { 'for': 'html' }
 Plug 'mustache/vim-mustache-handlebars', { 'for': ['html.handlebars', 'html.mustache'] }
-Plug 'pangloss/vim-javascript',          { 'for': ['javascript', 'jsx'] }
-Plug 'mxw/vim-jsx',          { 'for': ['javascript', 'jsx'] }
+Plug 'leafgarland/typescript-vim',       { 'for': ['ts', 'typescript'] }
+Plug 'MaxMEllon/vim-jsx-pretty',         { 'for': ['jsx','javascriptreact'] }
+Plug 'peitalin/vim-jsx-typescript',      { 'for': ['tsx','typescriptreact'] }
+Plug 'pangloss/vim-javascript',          { 'for': ['js','javascript'] }
 Plug 'elzr/vim-json',                    { 'for': 'json' }
   let g:vim_json_syntax_conceal = 0
 Plug 'groenewege/vim-less',              { 'for': 'less' }
@@ -283,7 +289,6 @@ Plug 'vim-ruby/vim-ruby',                { 'for': 'ruby' }
 Plug 'rust-lang/rust.vim',               { 'for': 'rust' }
 Plug 'cespare/vim-toml',                 { 'for': 'toml' }
 Plug 'keith/tmux.vim',                   { 'for': 'tmux' }
-Plug 'leafgarland/typescript-vim'
 
 call plug#end()
 
@@ -293,6 +298,11 @@ if has("autocmd")
   filetype plugin indent on
   " Use tabs in go
   autocmd Filetype go setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
+
+  " Syntax highlight sync more often in JS/TS projects
+  autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
+  autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
+
   " Close completion window after insert or complete
   autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
@@ -306,5 +316,3 @@ colorscheme base16-unikitty
 
 " Enable syntax highlighting
 syntax enable
-
-
