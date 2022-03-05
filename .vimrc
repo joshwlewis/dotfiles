@@ -212,7 +212,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
   \   'coc-tsserver',
   \   'coc-json',
   \   'coc-go',
-  \   'coc-solargraph'
+  \   'coc-solargraph',
+  \   'coc-rust-analyzer'
   \ ]
 
   " Use coc-prettier if the project uses prettier
@@ -224,6 +225,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
   if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
     let g:coc_global_extensions += ['coc-eslint']
   endif
+
 
   " Use tab for trigger completion with characters ahead and navigate.
   inoremap <silent><expr> <TAB>
@@ -256,6 +258,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
   xmap <leader>,  <Plug>(coc-format-selected)
   nmap <silent> <leader>,  <Plug>(coc-format-selected)
   nmap <silent> <leader>.  <Plug>(coc-codeaction-selected)
+  nmap <silent> <leader>' <Plug>(coc-format)
 
 Plug 'scrooloose/nerdtree'
   nmap <silent> <leader>a :NERDTreeToggle<CR>
@@ -291,6 +294,8 @@ Plug 'cespare/vim-toml',                 { 'for': 'toml' }
 Plug 'keith/tmux.vim',                   { 'for': 'tmux' }
 
 call plug#end()
+
+call coc#config('coc.preferences.formatOnSaveFiletypes', ['rust'])
 
 " Automatic commands
 if has("autocmd")
