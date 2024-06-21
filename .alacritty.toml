@@ -1,0 +1,73 @@
+[bell]
+animation = "EaseOutExpo"
+color = "0xa7a5a8"
+duration = 100
+
+[colors]
+draw_bold_text_with_bright_colors = false
+
+[colors.bright]
+black = "0xa7a5a8"
+blue = "0x89878b"
+cyan = "0xe013d0"
+green = "0xe1e1e2"
+magenta = "0x4f4b51"
+red = "0xd65407"
+white = "0x6c696e"
+yellow = "0xc4c3c5"
+
+[colors.cursor]
+cursor = "0x6c696e"
+text = "0xffffff"
+
+[colors.normal]
+black = "0xffffff"
+blue = "0x775dff"
+cyan = "0x149bda"
+green = "0x17ad98"
+magenta = "0xaa17e6"
+red = "0xd8137f"
+white = "0x6c696e"
+yellow = "0xdc8a0e"
+
+[colors.primary]
+background = "0xffffff"
+foreground = "0x6c696e"
+
+[font]
+size = 16.0
+
+[font.bold]
+family = "Anonymous Pro"
+style = "Bold"
+
+[font.glyph_offset]
+x = 0
+y = 6
+
+[font.italic]
+family = "Anonymous Pro"
+style = "Italic"
+
+[font.normal]
+family = "Anonymous Pro"
+style = "Regular"
+
+[font.offset]
+x = 0
+y = 8
+
+[shell]
+args = ["-l", "-c", "tmux attach || tmux"]
+program = "zsh"
+
+[window]
+decorations = "buttonless"
+
+[window.dimensions]
+columns = 84
+lines = 36
+
+[window.padding]
+x = 8
+y = 8
