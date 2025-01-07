@@ -37,27 +37,23 @@ foreground = "0x6c696e"
 [font]
 size = 16.0
 
+[font.normal]
+family = "Monaspace Argon"
+style = "Regular"
+
 [font.bold]
-family = "Anonymous Pro"
+family = "Monaspace Argon"
 style = "Bold"
 
-[font.glyph_offset]
-x = 0
-y = 6
-
 [font.italic]
-family = "Anonymous Pro"
+family = "Monaspace Argon"
 style = "Italic"
-
-[font.normal]
-family = "Anonymous Pro"
-style = "Regular"
 
 [font.offset]
 x = 0
 y = 8
 
-[shell]
+[terminal.shell]
 args = ["-l", "-c", "tmux attach || tmux"]
 program = "zsh"
 

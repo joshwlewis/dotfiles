@@ -134,8 +134,10 @@ noremap <leader>ss :call StripWhitespace()<CR>
 
 " Be smarter about mouse support in tmux
 set mouse+=a
-if &term =~ '^screen'
-  set ttymouse=xterm2
+if !has('nvim')
+  if &term =~ '^screen'
+    set ttymouse=xterm2
+  endif
 endif
 
 " up/down work as expected with word wrapping on
