@@ -221,9 +221,14 @@
 [user]
   name = Josh W Lewis
   email = josh.w.lewis@gmail.com
+  signingkey = ~/.ssh/id_ed25519.pub
 [commit]
   gpgsign = true
+[tag]
+  gpgSign = true
 [pull]
   ff = only
 [init]
-	defaultBranch = main
+  defaultBranch = main
+[gpg]
+  format = ssh
