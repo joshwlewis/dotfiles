@@ -39,7 +39,7 @@ size = 16.0
 
 [font.normal]
 family = "Monaspace Argon"
-style = "Regular"
+style = "Medium"
 
 [font.bold]
 family = "Monaspace Argon"
