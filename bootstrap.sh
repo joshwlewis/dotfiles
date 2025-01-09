@@ -8,6 +8,7 @@ script_dir="$(
 dotfiles=(
     .config/kitty/kitty.conf
     .config/nvim/init.lua
+    .config/nvim/lazyvim.json
     .rgignore
     .aliases
     .alacritty.toml
