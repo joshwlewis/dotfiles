@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 script_dir="$(
-    cd "$(dirname "$0")"
+    cd "$(dirname "$0")" || exit 1
     pwd -P
 )"
 
@@ -39,17 +39,17 @@ dotfiles=(
 
 function symlinkAll() {
     for f in "${dotfiles[@]}"; do
-        echo $script_dir/$f
+        echo "$script_dir/$f"
         mkdir -p "~$(dirname "$f")"
-        rm ~/$f
-        ln -s $script_dir/$f ~/$f
+        rm "$HOME/$f"
+        ln -s "$script_dir/$f" "$HOME/$f"
     done
 }
 
-if [ "$1" == "--force" -o "$1" == "-f" ]; then
+if [ "$1" == "--force" ] || [ "$1" == "-f" ]; then
     symlinkAll
 else
-    read -p "This may overwrite existing files in your home directory. Are you sure? (y/n) " -n 1
+    read -pr "This may overwrite existing files in your home directory. Are you sure? (y/n) " -n 1
     echo ""
     if [[ $REPLY =~ ^[Yy]$ ]]; then
         symlinkAll

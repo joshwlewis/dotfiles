@@ -27,6 +27,13 @@ require("lazy").setup({
         -- add LazyVim and import its plugins
         { "LazyVim/LazyVim", import = "lazyvim.plugins" },
         -- import/override with your plugins
+        {
+            "williamboman/mason.nvim",
+            opts_extend = { "ensure_installed" },
+            opts = {
+                ensure_installed = { "bash-language-server" },
+            },
+        },
     },
     -- Configure any other settings here. See the documentation for more details.
     -- colorscheme that will be used when installing plugins.
