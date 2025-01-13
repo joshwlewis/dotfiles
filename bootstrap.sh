@@ -30,6 +30,7 @@ dotfiles=(
     .hyperterm.js
     .inputrc
     .irbrc
+    .markdownlint-cli2.yaml
     .screenrc
     .tmux.conf
     .vimrc

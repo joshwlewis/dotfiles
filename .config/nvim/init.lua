@@ -21,17 +21,30 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
+local HOME = os.getenv("HOME")
 -- Setup lazy.nvim
 require("lazy").setup({
     spec = {
         -- add LazyVim and import its plugins
         { "LazyVim/LazyVim", import = "lazyvim.plugins" },
-        -- import/override with your plugins
+        -- Add some basic bash linting
         {
             "williamboman/mason.nvim",
             opts_extend = { "ensure_installed" },
             opts = {
                 ensure_installed = { "bash-language-server" },
+            },
+        },
+        -- By default, markdownlint-cli2 is a bit noisy, point it at a config file
+        {
+            "mfussenegger/nvim-lint",
+            optional = true,
+            opts = {
+                linters = {
+                    ["markdown-cli2"] = {
+                        args = { "--config", HOME .. "/.markdownlint-cli2.yaml", "--" },
+                    },
+                },
             },
         },
     },

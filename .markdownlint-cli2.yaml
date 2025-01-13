@@ -1,0 +1,13 @@
+config:
+    # no-hard-tabs
+    MD010: false
+    # line-length
+    MD013: false
+    # commands-show-output
+    MD014: false
+    # no-inline-html
+    MD033: false
+    # fenced-code-language
+    MD040: false
+    # first-line-heading
+    MD041: false
