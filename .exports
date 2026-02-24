@@ -26,6 +26,9 @@ export MANPAGER='less -X';
 # Use the silver searcher by default for FZF
 export FZF_DEFAULT_COMMAND='rg --files --hidden --ignore-file=~/.hgignore'
 
+# Let the asdf go plugin read version numbers from go.mod
+export ASDF_GOLANG_MOD_VERSION_ENABLED=true
+
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOBIN
