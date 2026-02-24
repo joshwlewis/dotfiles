@@ -41,8 +41,8 @@ dotfiles=(
 function symlinkAll() {
     for f in "${dotfiles[@]}"; do
         echo "$script_dir/$f"
-        mkdir -p "~$(dirname "$f")"
-        rm "$HOME/$f"
+        mkdir -p "$HOME/$(dirname "$f")"
+        [ -e "$HOME/$f" ] && rm "$HOME/$f"
         ln -s "$script_dir/$f" "$HOME/$f"
     done
 }
@@ -50,7 +50,7 @@ function symlinkAll() {
 if [ "$1" == "--force" ] || [ "$1" == "-f" ]; then
     symlinkAll
 else
-    read -pr "This may overwrite existing files in your home directory. Are you sure? (y/n) " -n 1
+    read -p -r "This may overwrite existing files in your home directory. Are you sure? (y/n) " -n 1
     echo ""
     if [[ $REPLY =~ ^[Yy]$ ]]; then
         symlinkAll
