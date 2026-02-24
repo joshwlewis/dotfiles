@@ -6,9 +6,11 @@ script_dir="$(
 )"
 
 dotfiles=(
+    .config/ghostty/config
     .config/kitty/kitty.conf
     .config/nvim/init.lua
     .config/nvim/lazyvim.json
+    .config/zellij/config.kdl
     .rgignore
     .aliases
     .alacritty.toml
@@ -50,7 +52,7 @@ function symlinkAll() {
 if [ "$1" == "--force" ] || [ "$1" == "-f" ]; then
     symlinkAll
 else
-    read -p -r "This may overwrite existing files in your home directory. Are you sure? (y/n) " -n 1
+    read -r -p "This may overwrite existing files in your home directory. Are you sure? (y/n) " -n 1
     echo ""
     if [[ $REPLY =~ ^[Yy]$ ]]; then
         symlinkAll
