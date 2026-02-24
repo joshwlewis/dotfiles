@@ -31,6 +31,7 @@ export ASDF_GOLANG_MOD_VERSION_ENABLED=true
 
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
+export GOPRIVATE=github.com/heroku
 export PATH=$PATH:$GOBIN
 
 export PATH=$PATH:/usr/local/sbin:~/.local/bin
