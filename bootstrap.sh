@@ -7,6 +7,7 @@ script_dir="$(
 
 dotfiles=(
     .config/ghostty/config
+    .config/helix/config.toml
     .config/kitty/kitty.conf
     .config/nvim/init.lua
     .config/nvim/lazyvim.json
