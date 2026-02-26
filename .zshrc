@@ -32,3 +32,7 @@ ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg[cyan]%})%{$reset_color%}"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 [ -f ~/.asdf/asdf.sh ] && source ~/.asdf/asdf.sh
+
+if command -v "zellij" >/dev/null 2>&1; then
+    eval "$(zellij setup --generate-auto-start zsh)"
+fi
