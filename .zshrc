@@ -1,5 +1,6 @@
+#!/usr/bin/env zsh
 for dotfile in ~/.(path|exports|aliases|functions); do
-  source $dotfile
+  source "$dotfile"
 done
 
 source ~/.zgen/zgen.zsh
@@ -34,5 +35,7 @@ ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg[cyan]%})%{$reset_color%}"
 [ -f ~/.asdf/asdf.sh ] && source ~/.asdf/asdf.sh
 
 if command -v "zellij" >/dev/null 2>&1; then
-    eval "$(zellij setup --generate-auto-start zsh)"
+  if [[ -z "$ZELLIJ" ]]; then
+      exec zellij
+  fi
 fi

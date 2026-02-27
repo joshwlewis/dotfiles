@@ -1,6 +1,10 @@
 macos-option-as-alt = left
+
+keybind = option+left=unbind
+keybind = option+right=unbind
+
 font-family="Monaspace Neon Var"
-font-size=16
+font-size=15
 font-feature = "ss01"
 font-feature = "ss02"
 font-feature = "ss03"
@@ -13,4 +17,9 @@ font-feature = "liga"
 font-feature = "calt
 font-variation="wght=400"
 font-variation="wdth=100"
+
 theme=Nightfox
+
+background-opacity = 0.88
+background-blur = 20
+background-opacity-cells = true
