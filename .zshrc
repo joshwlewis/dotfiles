@@ -34,8 +34,9 @@ ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg[cyan]%})%{$reset_color%}"
 
 [ -f ~/.asdf/asdf.sh ] && source ~/.asdf/asdf.sh
 
-if command -v "zellij" >/dev/null 2>&1; then
-  if [[ -z "$ZELLIJ" ]]; then
-      exec zellij
-  fi
+if command -v tmux &>/dev/null; then
+    if [ -z "$TMUX" ] && [ ${UID} != 0 ]; then
+        session_name=$(shuf -n 1 /usr/share/dict/words)
+        exec tmux new-session -As "${session_name}"
+    fi
 fi
