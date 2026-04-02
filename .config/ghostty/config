@@ -18,8 +18,10 @@ font-feature = "calt
 font-variation="wght=400"
 font-variation="wdth=100"
 
-theme=Nightfox
+theme=Citruszest
 
-background-opacity = 0.88
+palette-generate = false
+
+background-opacity = 0.92
 background-blur = 20
 background-opacity-cells = true
