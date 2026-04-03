@@ -4,7 +4,7 @@ keybind = option+left=unbind
 keybind = option+right=unbind
 
 font-family="Monaspace Neon Var"
-font-size=15
+font-size=16
 font-feature = "ss01"
 font-feature = "ss02"
 font-feature = "ss03"
@@ -18,10 +18,10 @@ font-feature = "calt
 font-variation="wght=400"
 font-variation="wdth=100"
 
-theme=Citruszest
+theme = Monokai Soda
 
 palette-generate = false
 
 background-opacity = 0.92
 background-blur = 20
-background-opacity-cells = true
+background-opacity-cells = false
