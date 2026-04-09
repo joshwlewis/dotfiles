@@ -12,6 +12,7 @@ dotfiles=(
     .config/nvim/init.lua
     .config/nvim/lazyvim.json
     .config/zellij/config.kdl
+    .config/zed/settings.json
     .rgignore
     .aliases
     .alacritty.toml

@@ -1,0 +1,18 @@
+{
+    "buffer_font_family": ".ZedMono",
+    "telemetry": {
+        "diagnostics": true,
+        "metrics": false
+    },
+    "session": {
+        "trust_all_worktrees": true
+    },
+    "vim_mode": true,
+    "ui_font_size": 16,
+    "buffer_font_size": 15,
+    "theme": {
+        "mode": "system",
+        "light": "One Light",
+        "dark": "One Dark"
+    }
+}
