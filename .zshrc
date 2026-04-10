@@ -16,13 +16,13 @@ if ! zgen saved; then
 fi
 
 
-PROMPT='%F{green}%~%f$(git_prompt_info) %(?.%F{blue}.%F{magenta})➜%f '
+PROMPT='%F{blue}%~%f$(git_prompt_info) %(?.%F{black}.%F{red})\$%f '
 PROMPT2='%F{red}\ %f'
 RPS1='%(?..%F{red}%?%f)'
 
-ZSH_THEME_GIT_PROMPT_PREFIX="%F{blue}@%f%F{cyan}"
-ZSH_THEME_GIT_PROMPT_CLEAN="%F{green}✓%f"
-ZSH_THEME_GIT_PROMPT_DIRTY="%F{yellow}✘%f"
+ZSH_THEME_GIT_PROMPT_PREFIX="@%F{green}"
+ZSH_THEME_GIT_PROMPT_CLEAN="%F{cyan}✓%f"
+ZSH_THEME_GIT_PROMPT_DIRTY="%F{magenta}✘%f"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%f"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
