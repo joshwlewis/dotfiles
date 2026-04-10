@@ -1,5 +1,5 @@
 #!/usr/bin/env zsh
-for dotfile in ~/.(path|exports|aliases|functions); do
+for dotfile in ~/.(path|exports|aliases|functions|creds); do
   source "$dotfile"
 done
 
