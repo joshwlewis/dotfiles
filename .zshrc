@@ -15,20 +15,15 @@ if ! zgen saved; then
   zgen save
 fi
 
-# Prompt
-local return_code="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
 
-PROMPT='%{$fg[green]%}%n%{$reset_color%}@%{$fg[blue]%}%m\
-%{$reset_color%}:%{$fg[magenta]%}%~\
-$(git_prompt_info) \
-%{$fg[reset_color]%}%(!.#.▹) '
-PROMPT2='%{$fg[red]%}\ %{$reset_color%}'
-RPS1='${return_code}'
+PROMPT='%F{green}%~%f$(git_prompt_info) %(?.%F{blue}.%F{magenta})➜%f '
+PROMPT2='%F{red}\ %f'
+RPS1='%(?..%F{red}%?%f)'
 
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[cyan]%}("
-ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[green]%}☼%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}☂%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg[cyan]%})%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_PREFIX="%F{blue}@%f%F{cyan}"
+ZSH_THEME_GIT_PROMPT_CLEAN="%F{green}✓%f"
+ZSH_THEME_GIT_PROMPT_DIRTY="%F{yellow}✘%f"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%f"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

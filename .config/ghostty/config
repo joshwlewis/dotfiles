@@ -18,7 +18,7 @@ font-feature = "calt
 font-variation="wght=400"
 font-variation="wdth=100"
 
-theme = Monokai Soda
+theme = dark:iTerm2 Tango Dark,light:iTerm2 Tango Light
 
 palette-generate = false
 
