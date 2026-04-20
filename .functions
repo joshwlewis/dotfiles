@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # Simple calculator
 function calc() {
 	local result="";
@@ -181,16 +183,6 @@ function s() {
 		subl .;
 	else
 		subl "$@";
-	fi;
-}
-
-# `a` with no arguments opens the current directory in Atom Editor, otherwise
-# opens the given location
-function a() {
-	if [ $# -eq 0 ]; then
-		atom .;
-	else
-		atom "$@";
 	fi;
 }
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env zsh
-for dotfile in ~/.(path|exports|aliases|functions|creds); do
+for dotfile in ~/.(path|exports|aliases|functions|locals|creds); do
   source "$dotfile"
 done
 
@@ -37,4 +37,3 @@ if command -v tmux &>/dev/null; then
         exec tmux new-session -As "${session_name}"
     fi
 fi
-

@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # Alias vi and vim to neovim
 alias vi="nvim"
 alias vim="nvim"

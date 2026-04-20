@@ -13,5 +13,7 @@ Thumbs.db
 .Spotlight-V100
 .Trashes
 
-# dotfile for credentials, don't accidentally store here
+# dotfiles for credentials and/or domain specifics
+# don't commit these to git
+.locals
 .creds
