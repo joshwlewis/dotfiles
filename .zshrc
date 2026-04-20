@@ -1,5 +1,6 @@
 #!/usr/bin/env zsh
-# Source interactive shell configs (PATH is handled in .zprofile)
+
+# * ~/.locals and ~/.creds  can be used for other settings you don’t want to commit.
 for dotfile in ~/.(exports|aliases|functions|locals|creds); do
   [ -f "$dotfile" ] && source "$dotfile"
 done

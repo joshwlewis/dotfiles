@@ -18,7 +18,6 @@ dotfiles=(
     .alacritty.toml
     .asdfrc
     .bash_profile
-    .bash_prompt
     .bashrc
     .curlrc
     .editorconfig
