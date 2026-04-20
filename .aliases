@@ -21,15 +21,10 @@ alias dm='docker-machine'
 # Git
 alias g="git"
 
-# Always use color output for `ls` (GNU ls uses --color, BSD ls uses -G)
-if ls --color=auto &>/dev/null 2>&1; then
-    alias ls="command ls --color=auto"
-else
-    alias ls="command ls -G"
-fi
+# Use eza for `ls`
+alias ls='eza --icons --group-directories-first'
 alias l="ls -lF"
 alias la="ls -laF"
-alias lsd="ls -lF | grep --color=never '^d'"
 
 # Always enable colored `grep` output
 # Note: `GREP_OPTIONS="--color=auto"` is deprecated, hence the alias usage.
@@ -75,7 +70,5 @@ alias reload="exec $SHELL -l"
 
 alias rg="rg --ignore-file ~/.rgignore"
 
-# Use bat for cat if available
-if command -v bat &>/dev/null; then
-    alias cat='bat --paging=never'
-fi
+# Use bat for cat
+alias cat='bat --paging=never'
