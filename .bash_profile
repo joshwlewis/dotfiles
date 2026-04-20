@@ -37,5 +37,5 @@ type _git &>/dev/null && complete -o default -o nospace -F _git g
 # Also try to grab any brew-installed tab compltions
 [ -x "$(command -v brew)" ] && [ -f $(brew --prefix)/etc/bash_completion ] && source $(brew --prefix)/etc/bash_completion
 
-eval "$(fzf --bash)"
-eval "$(mise activate bash)"
+command -v fzf &>/dev/null && eval "$(fzf --bash)"
+command -v mise &>/dev/null && eval "$(mise activate bash)"

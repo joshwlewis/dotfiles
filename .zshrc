@@ -4,8 +4,11 @@ for dotfile in ~/.(path|exports|aliases|functions|locals|creds); do
 done
 
 # Various completions
-source <(fzf --zsh)
-eval "$(mise activate zsh)"
+command -v fzf &>/dev/null && source <(fzf --zsh)
+command -v mise &>/dev/null && eval "$(mise activate zsh)"
+
+# Setup starship prompt
+command -v starship &>/dev/null && eval "$(starship init zsh)"
 
 # Start tmux by default when conditions are right.
 if command -v tmux &>/dev/null; then
