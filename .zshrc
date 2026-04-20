@@ -3,6 +3,9 @@ for dotfile in ~/.(path|exports|aliases|functions|locals|creds); do
   source "$dotfile"
 done
 
+# Enable vim keybindings
+bindkey -v
+
 # Various completions
 command -v fzf &>/dev/null && source <(fzf --zsh)
 command -v mise &>/dev/null && eval "$(mise activate zsh)"
