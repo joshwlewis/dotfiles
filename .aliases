@@ -19,14 +19,15 @@ alias dm='docker-machine'
 # Git
 alias g="git"
 
-# List all files colorized in long format
-alias l="ls -lFG"
-# List all files colorized in long format, including dot files
-alias la="ls -laFG"
-# List only directories
-alias lsd="ls -lFG | grep --color=never '^d'"
-# Always use color output for `ls`
-alias ls="command ls -G"
+# Always use color output for `ls` (GNU ls uses --color, BSD ls uses -G)
+if ls --color=auto &>/dev/null 2>&1; then
+    alias ls="command ls --color=auto"
+else
+    alias ls="command ls -G"
+fi
+alias l="ls -lF"
+alias la="ls -laF"
+alias lsd="ls -lF | grep --color=never '^d'"
 
 # Always enable colored `grep` output
 # Note: `GREP_OPTIONS="--color=auto"` is deprecated, hence the alias usage.
@@ -40,43 +41,15 @@ alias sudo='sudo '
 # Get week number
 alias week='date +%V'
 
-# Get OS X Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
-alias update='sudo softwareupdate -i -a; brew update; brew upgrade --all; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update'
-
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias localip="ipconfig getifaddr en0"
 alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
 
 # Enhanced WHOIS lookups
 alias whois="whois -h whois-servers.net"
 
-# Flush Directory Service cache
-alias flush="dscacheutil -flushcache; killall -HUP mDNSResponder"
-
-# View HTTP traffic
-alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
-alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
-
 # Canonical hex dump; some systems have this symlinked
 alias hd="hexdump -C"
-
-# OS X has no `md5sum`, so use `md5` as a fallback
-alias md5sum="md5"
-
-# OS X has no `sha1sum`, so use `shasum` as a fallback
-alias sha1sum="shasum"
-
-# Trim new lines and copy to clipboard
-alias copy="tr -d '\n' | pbcopy"
-
-# Recursively delete `.DS_Store` files
-alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
-
-# Empty the Trash on all mounted volumes and the main HDD.
-# Also, clear Apple’s System Logs to improve shell startup speed.
-# Finally, clear download history from quarantine. https://mths.be/bum
-alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl; sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete from LSQuarantineEvent'"
 
 # URL-encode strings
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
@@ -94,9 +67,6 @@ alias PUT="lwp-request -m PUT"
 alias DELETE="lwp-request -m DELETE"
 alias TRACE="lwp-request -m TRACE"
 alias OPTIONS="lwp-request -m OPTIONS"
-
-# Lock the screen (when going AFK)
-alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec $SHELL -l"
