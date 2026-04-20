@@ -1,6 +1,7 @@
 #!/usr/bin/env zsh
-for dotfile in ~/.(path|exports|aliases|functions|locals|creds); do
-  source "$dotfile"
+# Source interactive shell configs (PATH is handled in .zprofile)
+for dotfile in ~/.(exports|aliases|functions|locals|creds); do
+  [ -f "$dotfile" ] && source "$dotfile"
 done
 
 # Enable vim keybindings
