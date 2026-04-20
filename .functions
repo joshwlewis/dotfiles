@@ -65,14 +65,6 @@ function fs() {
 	fi;
 }
 
-# Use Git’s colored diff when available
-hash git &>/dev/null;
-if [ $? -eq 0 ]; then
-	function diff() {
-		git diff --no-index --color-words "$@";
-	}
-fi;
-
 # Create a data URL from a file
 function dataurl() {
 	local mimeType=$(file -b --mime-type "$1");
@@ -173,16 +165,6 @@ function getcertnames() {
 	else
 		echo "ERROR: Certificate not found.";
 		return 1;
-	fi;
-}
-
-# `s` with no arguments opens the current directory in Sublime Text, otherwise
-# opens the given location
-function s() {
-	if [ $# -eq 0 ]; then
-		subl .;
-	else
-		subl "$@";
 	fi;
 }
 
