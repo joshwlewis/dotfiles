@@ -25,11 +25,16 @@ ZSH_THEME_GIT_PROMPT_CLEAN="%F{cyan}✓%f"
 ZSH_THEME_GIT_PROMPT_DIRTY="%F{magenta}✘%f"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%f"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# Various completions
+source <(fzf --zsh)
+eval "$(mise activate zsh)"
+
+# Start tmux by default when conditions are right.
 if command -v tmux &>/dev/null; then
     if [ -z "$TMUX" ] && [ ${UID} != 0 ] && [[ -o interactive ]] && ( [ ${TERM_PROGRAM} != "zed" ] || [ -n "$ZED_TERM" ] ); then
         session_name=$(shuf -n 1 /usr/share/dict/words)
         exec tmux new-session -As "${session_name}"
     fi
 fi
+
