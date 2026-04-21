@@ -21,13 +21,14 @@ alias dm='docker-machine'
 # Git
 alias g="git"
 
-# Use eza for `ls`
-alias ls='eza --icons --group-directories-first'
-alias l="ls -lF"
-alias la="ls -laF"
+# Use lsd for `ls`
+alias ls='lsd'
+alias ll="ls -lF"
+alias la='ls -aF'
+alias lla='ls -laF'
+alias lt='ls --tree'
 
 # Always enable colored `grep` output
-# Note: `GREP_OPTIONS="--color=auto"` is deprecated, hence the alias usage.
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'

@@ -6,6 +6,7 @@ script_dir="$(
 )"
 
 dotfiles=(
+    .config/fish/config.fish
     .config/ghostty/config
     .config/helix/config.toml
     .config/kitty/kitty.conf
