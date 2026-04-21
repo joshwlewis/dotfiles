@@ -74,5 +74,9 @@ alias rg="rg --ignore-file ~/.rgignore"
 # On Ubuntu, fd is installed as fdfind
 command -v fdfind >/dev/null 2>&1 && alias fd=fdfind
 
-# Use bat for cat
-alias cat='bat --paging=never'
+# Use bat for cat (batcat on Ubuntu)
+if command -v batcat >/dev/null 2>&1; then
+  alias cat='batcat --paging=never'
+elif command -v bat >/dev/null 2>&1 && [[ "$OSTYPE" == "darwin"* ]]; then
+  alias cat='bat --paging=never'
+fi
