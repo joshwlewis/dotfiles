@@ -31,8 +31,6 @@ alias sudo='sudo '
 # find . -name .gitattributes | map dirname
 alias map="xargs -n1"
 
-alias rg="rg --ignore-file ~/.rgignore"
-
 # On Ubuntu, fd is installed as fdfind
 command -v fdfind >/dev/null 2>&1 && alias fd=fdfind
 
