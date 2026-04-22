@@ -4,70 +4,32 @@
 alias vi="nvim"
 alias vim="nvim"
 
-# Bundler
-alias b='bundle'
-alias be='bundle exec'
-alias bu='bundle update'
-
 # Heroku
-alias h='heroku'
-alias hs='heroku sudo'
-
-# Docker
-alias d='docker'
-alias dc='docker-compose'
-alias dm='docker-machine'
+alias h=’heroku’
+alias hs=’heroku sudo’
 
 # Git
 alias g="git"
 
 # Use lsd for `ls`
-alias ls='lsd'
+alias ls=’lsd’
 alias ll="ls -lF"
-alias la='ls -aF'
-alias lla='ls -laF'
-alias lt='ls --tree'
+alias la=’ls -aF’
+alias lla=’ls -laF’
+alias lt=’ls --tree’
 
 # Always enable colored `grep` output
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
+alias grep=’grep --color=auto’
+alias fgrep=’fgrep --color=auto’
+alias egrep=’egrep --color=auto’
 
 # Enable aliases to be sudo’ed
-alias sudo='sudo '
-
-# Get week number
-alias week='date +%V'
-
-# IP addresses
-alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
-
-# Enhanced WHOIS lookups
-alias whois="whois -h whois-servers.net"
-
-# Canonical hex dump; some systems have this symlinked
-alias hd="hexdump -C"
-
-# URL-encode strings
-alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
+alias sudo=’sudo ‘
 
 # Intuitive map function
 # For example, to list all directories that contain a certain file:
 # find . -name .gitattributes | map dirname
 alias map="xargs -n1"
-
-# One of @janmoesen’s ProTip™s
-alias GET="lwp-request -m GET"
-alias HEAD="lwp-request -m HEAD"
-alias POST="lwp-request -m POST"
-alias PUT="lwp-request -m PUT"
-alias DELETE="lwp-request -m DELETE"
-alias TRACE="lwp-request -m TRACE"
-alias OPTIONS="lwp-request -m OPTIONS"
-
-# Reload the shell (i.e. invoke as a login shell)
-alias reload="exec $SHELL -l"
 
 alias rg="rg --ignore-file ~/.rgignore"
 
@@ -76,7 +38,7 @@ command -v fdfind >/dev/null 2>&1 && alias fd=fdfind
 
 # Use bat for cat (batcat on Ubuntu)
 if command -v batcat >/dev/null 2>&1; then
-  alias cat='batcat --paging=never'
+  alias cat=’batcat --paging=never’
 elif command -v bat >/dev/null 2>&1 && [[ "$OSTYPE" == "darwin"* ]]; then
-  alias cat='bat --paging=never'
+  alias cat=’bat --paging=never’
 fi
