@@ -7,6 +7,9 @@ script_dir="$(
 
 dotfiles=(
     .config/fish/config.fish
+    .config/fish/conf.d/abbreviations.fish
+    .config/fish/functions/cat.fish
+    .config/fish/functions/fd.fish
     .config/ghostty/config
     .config/helix/config.toml
     .config/kitty/kitty.conf
