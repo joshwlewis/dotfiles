@@ -67,8 +67,6 @@ set list
 set hlsearch
 " Highlight dynamically as pattern is typed
 set incsearch
-" Live substitution previews
-set inccommand=nosplit
 " Always show status line
 set laststatus=2
 " Enable mouse in all modes
@@ -167,9 +165,6 @@ if has("autocmd")
   autocmd InsertEnter * :set norelativenumber
   autocmd InsertLeave * :set relativenumber
 endif
-
-" Pretty colors
-colorscheme base16-unikitty
 
 " Enable syntax highlighting
 syntax enable
