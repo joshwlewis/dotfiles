@@ -1,6 +1,6 @@
 # Load the shell dotfiles, and then some:
 # * ~/.locals and ~/.creds  can be used for other settings you don’t want to commit.
-for file in ~/.{path,exports,aliases,functions,locals,creds}; do
+for file in ~/.{profile,exports,aliases,functions,locals,creds}; do
     [ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
 unset file

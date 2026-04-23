@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 case ":$PATH:" in
 *":$HOME/.local/bin:"*) ;;

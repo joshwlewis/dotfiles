@@ -18,9 +18,9 @@ with `git pull`.
 
 ### Specify the `$PATH`
 
-If `~/.path` exists, it will be sourced along with the other files, before any feature testing (such as [detecting which version of `ls` is being used](https://github.com/mathiasbynens/dotfiles/blob/aff769fd75225d8f2e481185a71d5e05b76002dc/.aliases#L21-26)) takes place.
+If `~/.profile` exists, it will be sourced along with the other files, before any feature testing (such as [detecting which version of `ls` is being used](https://github.com/mathiasbynens/dotfiles/blob/aff769fd75225d8f2e481185a71d5e05b76002dc/.aliases#L21-26)) takes place.
 
-Here’s an example `~/.path` file that adds `/usr/local/bin` to the `$PATH`:
+Here’s an example `~/.profile` file that adds `/usr/local/bin` to the `$PATH`:
 
 ```bash
 export PATH="/usr/local/bin:$PATH"
