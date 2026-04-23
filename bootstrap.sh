@@ -21,7 +21,6 @@ dotfiles=(
     .rgignore
     .aliases
     .alacritty.toml
-    .asdfrc
     .bash_profile
     .bashrc
     .curlrc

@@ -10,7 +10,6 @@ bindkey -v
 
 # Various completions
 command -v fzf &>/dev/null && source <(fzf --zsh)
-command -v mise &>/dev/null && eval "$(mise activate zsh)"
 
 # Setup starship prompt
 command -v starship &>/dev/null && eval "$(starship init zsh)"
