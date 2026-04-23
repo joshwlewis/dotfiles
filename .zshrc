@@ -13,11 +13,3 @@ command -v fzf &>/dev/null && source <(fzf --zsh)
 
 # Setup starship prompt
 command -v starship &>/dev/null && eval "$(starship init zsh)"
-
-# Start tmux by default when conditions are right.
-if command -v tmux &>/dev/null; then
-    if [ -z "$TMUX" ] && [ ${UID} != 0 ] && [[ -o interactive ]] && ( [ ${TERM_PROGRAM} != "zed" ] || [ -n "$ZED_TERM" ] ); then
-        session_name=$(shuf -n 1 /usr/share/dict/words)
-        exec tmux new-session -As "${session_name}"
-    fi
-fi

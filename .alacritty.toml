@@ -54,8 +54,8 @@ x = 0
 y = 8
 
 [terminal.shell]
-args = ["-l", "-c", "tmux attach || tmux"]
-program = "zsh"
+args = ["new", "-A", "-s", "alacritty"]
+program = "/opt/homebrew/bin/tmux"
 
 [window]
 decorations = "buttonless"
