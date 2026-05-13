@@ -1,3 +1,5 @@
+[ -f ~/.profile ] && source ~/.profile
+
 # Load the shell dotfiles, and then some:
 # * ~/.locals and ~/.creds  can be used for other settings you don't want to commit.
 for file in ~/.{exports,aliases,functions,locals,creds}; do
