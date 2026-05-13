@@ -14,6 +14,7 @@ dotfiles=(
     .config/ghostty/config
     .config/helix/config.toml
     .config/kitty/kitty.conf
+    .config/mise/config.toml
     .config/nvim/init.lua
     .config/nvim/lazyvim.json
     .config/zellij/config.kdl
