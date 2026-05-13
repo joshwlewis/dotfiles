@@ -6,6 +6,7 @@ script_dir="$(
 )"
 
 dotfiles=(
+    .claude/settings.json
     .config/fish/config.fish
     .config/fish/conf.d/abbreviations.fish
     .config/fish/conf.d/aliases.fish
