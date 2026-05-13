@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Alias vi and vim to neovim
-alias vi="nvim"
+alias vi="vim"
 alias vim="nvim"
 
 # Heroku
@@ -36,7 +36,7 @@ command -v fdfind >/dev/null 2>&1 && alias fd=fdfind
 
 # Use bat for cat (batcat on Ubuntu)
 if command -v batcat >/dev/null 2>&1; then
-  alias cat='batcat --paging=never'
+    alias cat='batcat --paging=never'
 elif command -v bat >/dev/null 2>&1 && [[ "$OSTYPE" == "darwin"* ]]; then
-  alias cat='bat --paging=never'
+    alias cat='bat --paging=never'
 fi
