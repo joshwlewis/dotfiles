@@ -18,6 +18,11 @@ dotfiles=(
     .config/mise/config.toml
     .config/nvim/init.lua
     .config/nvim/lazyvim.json
+    .config/nvim/lua/config/autocmds.lua
+    .config/nvim/lua/config/keymaps.lua
+    .config/nvim/lua/config/lazy.lua
+    .config/nvim/lua/config/options.lua
+    .config/nvim/lua/plugins/example.lua
     .config/zellij/config.kdl
     .config/zed/settings.json
     .rgignore
