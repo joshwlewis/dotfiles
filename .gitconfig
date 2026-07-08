@@ -194,7 +194,7 @@
 [user]
     name = Josh W Lewis
     email = josh.w.lewis@gmail.com
-    signingkey = ~/.ssh/id_ed25519.pub
+    signingkey = ~/.ssh/sign_joshwlewis.pub
 
 [commit]
     gpgsign = true
@@ -205,4 +205,16 @@
 [init]
     defaultBranch = main
 [gpg]
-    format = ssh
+	format = ssh
+
+# Use ssh config host alias for work / emu repositories
+# so that the correct ssh key / identity is used.
+[url "github-r1-development:r1-development/"]
+	insteadOf = https://github.com/r1-development/
+
+# Include custom git config for work-owned / EMU repositories
+# Allows git config user.email and user.signingkey to be set correctly.
+[includeIf "hasconfig:remote.*.url:https://github.com/r1-development/**"]
+	path = ~/.config/git/r1-development.gitconfig
+[includeIf "hasconfig:remote.*.url:github-r1-development:r1-development/**"]
+	path = ~/.config/git/r1-development.gitconfig
