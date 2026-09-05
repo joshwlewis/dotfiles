@@ -16,6 +16,10 @@ git clone https://github.com/joshwlewis/dotfiles.git && cd dotfiles && source bo
 The bootstrap script symlinks your dotfiles. So you can just update this repo
 with `git pull`.
 
+`AGENTS.md` is the shared source of global instructions. Bootstrap links it to
+Claude Code (`~/.claude/CLAUDE.md`), Codex (`~/.codex/AGENTS.md`), and Pi
+(`~/.pi/agent/AGENTS.md`).
+
 ### Specify the `$PATH`
 
 If `~/.profile` exists, it will be sourced along with the other files, before any feature testing (such as [detecting which version of `ls` is being used](https://github.com/mathiasbynens/dotfiles/blob/aff769fd75225d8f2e481185a71d5e05b76002dc/.aliases#L21-26)) takes place.

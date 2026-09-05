@@ -54,12 +54,25 @@ dotfiles=(
     .zshrc
 )
 
+agent_instruction_targets=(
+    .claude/CLAUDE.md
+    .codex/AGENTS.md
+    .pi/agent/AGENTS.md
+)
+
 function symlinkAll() {
     for f in "${dotfiles[@]}"; do
         echo "$script_dir/$f"
         mkdir -p "$HOME/$(dirname "$f")"
         [ -e "$HOME/$f" ] && rm "$HOME/$f"
         ln -s "$script_dir/$f" "$HOME/$f"
+    done
+
+    for f in "${agent_instruction_targets[@]}"; do
+        echo "$script_dir/AGENTS.md -> $HOME/$f"
+        mkdir -p "$HOME/$(dirname "$f")"
+        [ -e "$HOME/$f" ] || [ -L "$HOME/$f" ] && rm "$HOME/$f"
+        ln -s "$script_dir/AGENTS.md" "$HOME/$f"
     done
 }
 
