@@ -3,6 +3,7 @@
     "commit": "",
     "pr": ""
   },
+  "model": "opus[1m]",
   "hooks": {
     "Stop": [
       {
@@ -16,5 +17,5 @@
     ]
   },
   "effortLevel": "high",
-  "theme": "auto",
+  "theme": "auto"
 }
