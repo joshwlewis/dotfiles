@@ -1,4 +1,9 @@
 {
+    "agent_servers": {
+        "claude-acp": {
+            "type": "registry"
+        }
+    },
     "buffer_font_family": ".ZedMono",
     "telemetry": {
         "diagnostics": true,
