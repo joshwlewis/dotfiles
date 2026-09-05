@@ -207,14 +207,18 @@
 [gpg]
 	format = ssh
 
-# Use ssh config host alias for work / emu repositories
-# so that the correct ssh key / identity is used.
-[url "github-r1-development:r1-development/"]
+# Route EMU repositories through the ssh host alias so the EMU key is used.
+[url "github-emu:r1-development/"]
 	insteadOf = https://github.com/r1-development/
+[url "github-emu:jlewis8_r1github/"]
+	insteadOf = https://github.com/jlewis8_r1github/
 
-# Include custom git config for work-owned / EMU repositories
-# Allows git config user.email and user.signingkey to be set correctly.
+# Include the EMU identity so user.email and user.signingkey are set correctly.
 [includeIf "hasconfig:remote.*.url:https://github.com/r1-development/**"]
-	path = ~/.config/git/r1-development.gitconfig
-[includeIf "hasconfig:remote.*.url:github-r1-development:r1-development/**"]
-	path = ~/.config/git/r1-development.gitconfig
+	path = ~/.config/git/emu.gitconfig
+[includeIf "hasconfig:remote.*.url:https://github.com/*_r1github/**"]
+	path = ~/.config/git/emu.gitconfig
+[includeIf "hasconfig:remote.*.url:github-emu:*/**"]
+	path = ~/.config/git/emu.gitconfig
+[includeIf "hasconfig:remote.*.url:github-r1-development:*/**"]
+	path = ~/.config/git/emu.gitconfig
